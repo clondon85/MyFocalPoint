@@ -7,8 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>My Focal Point</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────────────────────── */
 :root{
@@ -739,9 +740,7 @@ a.tni{text-decoration:none;}
     <div class="topbar-av" id="topbar-av-btn" onclick="toggleUserDD()">
       <span id="sb-av">?</span>
       <div class="topbar-dd" id="topbar-dd">
-      <button class="dd-item" onclick="closeDD();startTour();">Take the tour</button>
-        <div class="topbar-dd-email" id="sb-email">—</div>
-
+      <div class="topbar-dd-email" id="sb-email">—</div>
         <button class="sb-signout" onclick="signOut()">Sign out</button>
       </div>
     </div>
@@ -1332,7 +1331,7 @@ Object.defineProperty(window, "SUGGESTED_GOALS", {
 
 // ── SUPABASE ──────────────────────────────────────────────────────────────────
 var SUPABASE_URL = "https://gqteaokqruftfrfbsbmk.supabase.co";
-var SUPABASE_KEY = "sb_publishable_8_r6EYO6H3hF5kca2Dugvg_fsu44pHq";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxdGVhb2txcnVmdGZyZmJzYm1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNTA5NDIsImV4cCI6MjA4OTgyNjk0Mn0.SH-BCW9W9gA7P1XP7rKjbJV3sTm66fVFkqPwDVWLIyE";
 // Cross-browser safe storage — falls back to memory if localStorage blocked (Edge Enhanced Security, etc.)
 var _safeStorage = (function() {
   var _mem = {};
@@ -3027,7 +3026,9 @@ function openUnitViewer(u) {
   document.getElementById('unit-viewer').classList.add('uv-open');
 }
 
+var _uvCurrentUnit = null;
 function _uvLoad(u) {
+  _uvCurrentUnit = u;
   document.getElementById('uv-title').textContent = u.id==='gs'?'Getting Started':u.id==='fp'?'Final Project':u.num+': '+u.title;
   document.getElementById('uv-sub').textContent = u.sub;
   document.getElementById('uv-iframe').src = u.url;
@@ -3051,6 +3052,7 @@ function uvNav(dir) {
 }
 
 function closeUnitViewer() {
+  _uvCurrentUnit = null;
   document.getElementById('unit-viewer').classList.remove('uv-open');
   document.getElementById('uv-iframe').src='';
   nav('dashboard', false);
@@ -3063,7 +3065,66 @@ function openCurrentUnitLesson() {
   if (u) openUnitViewer(u);
 }
 
-// ── LESSON COMPLETION via postMessage (from embedded Rise buttons) ────────────
+// ── FEEDBACK MODAL ────────────────────────────────────────────────────────────
+var _fbRating = 0;
+var _fbCat = '';
+
+function openFeedbackModal() {
+  _fbRating = 0; _fbCat = '';
+  document.getElementById('fb-text').value = '';
+  document.getElementById('fb-msg').textContent = '';
+  document.querySelectorAll('.fb-star').forEach(function(s){ s.style.opacity='.35'; s.style.color=''; });
+  document.querySelectorAll('.fb-cat').forEach(function(b){ b.style.background='none'; b.style.borderColor='var(--input-border)'; b.style.color='var(--on-card-muted)'; });
+  document.getElementById('modal-feedback').style.display = 'block';
+}
+
+function closeFeedbackModal() {
+  document.getElementById('modal-feedback').style.display = 'none';
+}
+
+function setFbRating(n) {
+  _fbRating = n;
+  document.querySelectorAll('.fb-star').forEach(function(s){
+    var v = parseInt(s.dataset.v);
+    s.style.opacity = v <= n ? '1' : '.35';
+    s.style.color = v <= n ? 'var(--yellow)' : '';
+  });
+}
+
+function setFbCat(el) {
+  _fbCat = el.dataset.v;
+  document.querySelectorAll('.fb-cat').forEach(function(b){
+    b.style.background = 'none';
+    b.style.borderColor = 'var(--input-border)';
+    b.style.color = 'var(--on-card-muted)';
+  });
+  el.style.background = 'var(--mag)';
+  el.style.borderColor = 'var(--mag)';
+  el.style.color = '#fff';
+}
+
+function submitFeedback() {
+  var text = (document.getElementById('fb-text').value || '').trim();
+  var msg = document.getElementById('fb-msg');
+  if (!_fbRating) { msg.textContent = 'Please select a rating.'; return; }
+  if (!_fbCat) { msg.textContent = 'Please select a category.'; return; }
+  if (!text) { msg.textContent = 'Please enter your feedback.'; return; }
+
+  var userEmail = currentUser ? currentUser.email : 'unknown';
+  var userName = D['display_name'] || userEmail;
+  var subject = encodeURIComponent('My Focal Point Feedback: ' + _fbCat + ' (' + _fbRating + '/5)');
+  var body = encodeURIComponent(
+    'From: ' + userName + ' (' + userEmail + ')\n' +
+    'Rating: ' + _fbRating + '/5\n' +
+    'Category: ' + _fbCat + '\n\n' +
+    text
+  );
+
+  window.open('mailto:focalpointfeedback@gmail.com?subject=' + subject + '&body=' + body);
+  msg.style.color = 'var(--teal)';
+  msg.textContent = 'Thanks for your feedback!';
+  setTimeout(closeFeedbackModal, 1800);
+}
 window.addEventListener('message', function(event) {
   // Accept messages from Rise lesson buttons (use window.top in Rise, not window.parent)
   // Rise wraps lessons in nested iframes, so window.parent points to Rise's frame, not this app
@@ -3435,6 +3496,10 @@ sb.auth.onAuthStateChange(function(event, session) {
     handleSession(session);
   } else if (event === "SIGNED_OUT") {
     handleSession(null);
+  } else if (event === "TOKEN_REFRESH_FAILED") {
+    // Stale token — clear it and show login
+    try { _safeStorage.removeItem("pc26_auth"); } catch(e) {}
+    handleSession(null);
   }
 });
 
@@ -3550,9 +3615,9 @@ function openQuickNote() {
       sel.appendChild(opt);
     });
   }
-  // Pre-select current unit
+  // Pre-select current unit — use viewer unit if lesson is open, otherwise course progress
   if (sel) {
-    var curKey = String(currentUnitKey());
+    var curKey = String(_uvCurrentUnit ? _uvCurrentUnit.id : currentUnitKey());
     for (var i = 0; i < sel.options.length; i++) {
       if (sel.options[i].value === curKey) { sel.selectedIndex = i; break; }
     }
@@ -3619,6 +3684,41 @@ function saveModalNote() {
     </div>
     <div style="font-size:12px;color:rgba(255,252,246,.5);margin-bottom:20px;">Pick up to 3 to get started, or write your own.</div>
     <div id="sug-modal-body"></div>
+  </div>
+</div>
+
+<!-- FEEDBACK MODAL -->
+<div id="modal-feedback" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);" onclick="if(event.target===this)closeFeedbackModal()">
+  <div style="background:var(--card);border-radius:20px;max-width:480px;width:calc(100% - 24px);margin:60px auto;padding:28px 28px 22px;position:relative;color:var(--on-card);">
+    <button onclick="closeFeedbackModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--on-card-muted);line-height:1;">×</button>
+    <div style="font-size:17px;font-weight:700;margin-bottom:4px;">Send feedback</div>
+    <div style="font-size:12px;color:var(--on-card-muted);margin-bottom:20px;">Your feedback goes directly to Chelsea.</div>
+    <div style="margin-bottom:14px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">How would you rate your experience?</div>
+      <div id="fb-stars" style="display:flex;gap:8px;">
+        <span class="fb-star" data-v="1" onclick="setFbRating(1)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
+        <span class="fb-star" data-v="2" onclick="setFbRating(2)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
+        <span class="fb-star" data-v="3" onclick="setFbRating(3)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
+        <span class="fb-star" data-v="4" onclick="setFbRating(4)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
+        <span class="fb-star" data-v="5" onclick="setFbRating(5)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
+      </div>
+    </div>
+    <div style="margin-bottom:14px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">Category</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;" id="fb-cats">
+        <button class="fb-cat" data-v="Bug" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">Bug</button>
+        <button class="fb-cat" data-v="Feature request" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">Feature request</button>
+        <button class="fb-cat" data-v="General" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">General</button>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">Your feedback</div>
+      <textarea id="fb-text" placeholder="Tell us what's on your mind..." style="width:100%;height:110px;border-radius:10px;border:1.5px solid var(--input-border);background:var(--input);color:var(--on-card);font-family:'Poppins',sans-serif;font-size:13px;padding:10px 12px;resize:none;outline:none;"></textarea>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <div id="fb-msg" style="font-size:11px;color:var(--on-card-muted);"></div>
+      <button onclick="submitFeedback()" style="background:var(--mag);color:#fff;border:none;border-radius:99px;padding:10px 24px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Send feedback</button>
+    </div>
   </div>
 </div>
 
