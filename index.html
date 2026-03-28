@@ -3418,8 +3418,7 @@ if (LOCAL_MODE) {
         if (_iv && _vv.indexOf(_iv) >= 0) {
           nav(_iv, false);
         } else {
-          renderDash();
-          try { history.replaceState({view:"dashboard"}, "", "#dashboard"); } catch(e) {}
+          nav('dashboard', false);
         }
         checkFirstLogin();
       });
