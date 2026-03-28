@@ -700,7 +700,7 @@ a.tni{text-decoration:none;}
     <div class="login-h">Welcome back.<br><b>Sign in.</b></div>
     <div class="login-p" id="login-desc">Enter your email and we will send you a magic link. No password needed.</div>
     <label class="login-label" for="login-email">Email address</label>
-    <input class="login-input" type="email" id="login-email" placeholder="you@example.com" onkeydown="if(event.key==='Enter')submitLogin()">
+    <input class="login-input" type="email" id="login-email" placeholder="you@example.com" autocomplete="email" oninput="" onkeydown="if(event.key==='Enter')submitLogin()">
     <div id="login-password-wrap" style="display:none;">
       <label class="login-label" for="login-password">Password</label>
       <input class="login-input" type="password" id="login-password" placeholder="Your password" onkeydown="if(event.key==='Enter')submitLogin()">
@@ -1386,7 +1386,8 @@ function toggleLoginMode() {
 }
 
 function submitLogin() {
-  var email = document.getElementById("login-email").value.trim();
+  var inp = document.getElementById("login-email");
+  var email = (inp.value || inp.getAttribute('value') || '').trim();
   if (!email) { showLoginMsg("Please enter your email address.", true); return; }
   var btn = document.getElementById("login-btn");
   btn.disabled = true;
