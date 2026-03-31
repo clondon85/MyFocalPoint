@@ -761,6 +761,12 @@ a.tni{text-decoration:none;}
       <span id="sb-av">?</span>
       <div class="topbar-dd" id="topbar-dd">
       <div class="topbar-dd-email" id="sb-email">—</div>
+        <div class="topbar-dd-sep"></div>
+        <button class="topbar-dd-item" onclick="openFeedback();toggleUserDD();">
+          <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M2 2h12v9H9l-3 3v-3H2V2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          Send feedback
+        </button>
+        <div class="topbar-dd-sep"></div>
         <button class="sb-signout" onclick="signOut()">Sign out</button>
       </div>
     </div>
@@ -1082,6 +1088,30 @@ a.tni{text-decoration:none;}
   </div>
 </div>
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="toast-msg"></span></div>
+
+<!-- FEEDBACK MODAL -->
+<div class="mo" id="modal-feedback">
+  <div class="md" style="max-width:480px;">
+    <button class="md-close" onclick="closeModal('modal-feedback')" aria-label="Close">×</button>
+    <h2>Send feedback</h2>
+    <div class="msub">What's on your mind? Bug reports, suggestions, general thoughts — all welcome.</div>
+    <div id="feedback-form-wrap">
+      <div class="fg">
+        <label class="fl">Your feedback</label>
+        <textarea class="fta" id="feedback-text" placeholder="Write freely..." rows="5" style="min-height:120px;"></textarea>
+      </div>
+      <div class="md-acts">
+        <button class="btn btn-g" onclick="closeModal('modal-feedback')">Cancel</button>
+        <button class="btn btn-p" id="feedback-submit-btn" onclick="submitFeedback()">Send feedback</button>
+      </div>
+    </div>
+    <div id="feedback-success" style="display:none;text-align:center;padding:24px 0;">
+      <svg viewBox="0 0 48 48" fill="none" width="40" height="40" style="margin-bottom:12px;"><circle cx="24" cy="24" r="22" stroke="#13ce66" stroke-width="2"/><path d="M14 24l7 7 13-14" stroke="#13ce66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-size:15px;font-weight:700;color:var(--on-card);margin-bottom:6px;">Feedback sent.</div>
+      <div style="font-size:13px;color:var(--on-card-muted);">Thanks for taking the time. It genuinely helps.</div>
+    </div>
+  </div>
+</div>
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────────
 var UNITS = [
@@ -1759,6 +1789,59 @@ document.querySelectorAll(".mo").forEach(function(m) {
 });
 
 // ── TOAST ─────────────────────────────────────────────────────────────────────
+// ── FEEDBACK ──────────────────────────────────────────────────────────────────
+function openFeedback() {
+  // Reset form state
+  document.getElementById('feedback-text').value = '';
+  document.getElementById('feedback-form-wrap').style.display = 'block';
+  document.getElementById('feedback-success').style.display = 'none';
+  var btn = document.getElementById('feedback-submit-btn');
+  btn.disabled = false;
+  btn.textContent = 'Send feedback';
+  openModal('modal-feedback');
+}
+
+function submitFeedback() {
+  var text = document.getElementById('feedback-text').value.trim();
+  if (!text) { toast('Please write something first.'); return; }
+
+  var btn = document.getElementById('feedback-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  // Get user info from Supabase session
+  var userEmail = document.getElementById('sb-email') ? document.getElementById('sb-email').textContent : 'Unknown';
+  var userName = document.getElementById('sb-av') ? document.getElementById('sb-av').textContent : '?';
+
+  fetch('https://formspree.io/f/xykbjwrz', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      message: text,
+      _replyto: userEmail,
+      name: userName,
+      email: userEmail,
+      source: 'My Focal Point dashboard'
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.ok) {
+      document.getElementById('feedback-form-wrap').style.display = 'none';
+      document.getElementById('feedback-success').style.display = 'block';
+    } else {
+      toast('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Send feedback';
+    }
+  })
+  .catch(function() {
+    toast('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Send feedback';
+  });
+}
+
 function toast(msg) {
   var el = document.getElementById("toast");
   document.getElementById("toast-msg").textContent = msg;
