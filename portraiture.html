@@ -138,6 +138,33 @@ body{font-family:'Poppins',sans-serif;background:var(--grad);background-attachme
 .oc-tag{font-size:11px;color:var(--on-grad-muted);line-height:1.5;flex:1;margin-bottom:8px;}
 .oc-price{font-size:12.5px;font-weight:700;color:var(--yellow);}
 
+
+/* Avatar + dropdown */
+.topbar-av{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;position:relative;}
+.topbar-av:hover{background:rgba(255,255,255,.22);}
+.topbar-dd{display:none;position:absolute;top:calc(100% + 10px);right:0;background:#1e0a1a;border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:700;}
+.topbar-av:focus-within .topbar-dd,.topbar-av.dd-open .topbar-dd{display:block;}
+.topbar-dd-email{font-size:11px;color:rgba(255,252,246,.5);margin-bottom:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.topbar-dd-item{font-size:12px;font-weight:600;color:rgba(255,252,246,.75);padding:7px 0;cursor:pointer;display:flex;align-items:center;gap:8px;border:none;background:none;font-family:'Poppins',sans-serif;width:100%;text-align:left;}
+.topbar-dd-item:hover{color:#FFFCF6;}
+.topbar-dd-sep{height:1px;background:rgba(255,255,255,.1);margin:8px 0;}
+.sb-signout{font-size:11px;color:rgba(255,252,246,.38);cursor:pointer;background:none;border:none;font-family:'Poppins',sans-serif;padding:0;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+.sb-signout:hover{color:#EACC28;}
+/* Feedback modal */
+.lp-mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:1000;align-items:center;justify-content:center;}
+.lp-mo.open{display:flex;}
+.lp-md{background:#fff;border-radius:20px;padding:32px;width:480px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3);color:#1a1018;position:relative;}
+.lp-md h2{font-size:18px;font-weight:800;margin-bottom:6px;color:#1a1018;}
+.lp-md .msub{font-size:13px;color:rgba(26,16,24,.55);margin-bottom:20px;line-height:1.55;}
+.lp-md textarea{width:100%;background:#f5f0f7;border:1.5px solid rgba(159,33,126,.18);border-radius:10px;padding:12px 15px;font-family:'Poppins',sans-serif;font-size:13px;color:#1a1018;resize:none;outline:none;min-height:120px;display:block;margin-bottom:16px;}
+.lp-md textarea:focus{border-color:#9F217E;}
+.lp-md-acts{display:flex;justify-content:flex-end;gap:8px;}
+.lp-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:99px;font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border:none;transition:all .15s;}
+.lp-btn-p{background:#9F217E;color:#fff;}.lp-btn-p:hover{filter:brightness(1.1);}
+.lp-btn-p:disabled{opacity:.5;cursor:not-allowed;}
+.lp-btn-g{background:rgba(0,0,0,.06);color:rgba(26,16,24,.6);border:1.5px solid rgba(26,16,24,.15);}.lp-btn-g:hover{background:rgba(0,0,0,.1);}
+.lp-md-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:rgba(26,16,24,.35);line-height:1;}
+
 </style>
 </head>
 <body>
@@ -158,6 +185,19 @@ body{font-family:'Poppins',sans-serif;background:var(--grad);background-attachme
     <div style="display:flex;align-items:center;gap:7px;">
       <span id="dmIcon" style="display:flex;align-items:center;width:14px;height:14px;color:rgba(255,252,246,.65);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
       <label class="dm-sw" style="margin:0;" for="dmCheck"><input type="checkbox" id="dmCheck" onchange="toggleDark(this.checked)"><div class="dm-track"></div><div class="dm-thumb"></div></label>
+    </div>
+    <div class="topbar-av" id="lp-av-btn" onclick="lpToggleDD()">
+      <span id="lp-av-initial">?</span>
+      <div class="topbar-dd" id="lp-av-dd">
+        <div class="topbar-dd-email" id="lp-av-email">—</div>
+        <div class="topbar-dd-sep"></div>
+        <button class="topbar-dd-item" onclick="lpOpenFeedback()">
+          <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M2 2h12v9H9l-3 3v-3H2V2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          Send feedback
+        </button>
+        <div class="topbar-dd-sep"></div>
+        <a class="sb-signout" href="index.html">Back to dashboard</a>
+      </div>
     </div>
     <button class="mob-menu-btn" id="mobMenuBtn" onclick="document.getElementById('mobDrawer').classList.toggle('open')">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -385,6 +425,27 @@ function toggleDark(on){
       </a>
     </div>
   </div>
+
+<!-- LP Feedback Modal -->
+<div class="lp-mo" id="lp-feedback-mo">
+  <div class="lp-md">
+    <button class="lp-md-close" onclick="document.getElementById('lp-feedback-mo').classList.remove('open')">&#xd7;</button>
+    <h2>Send feedback</h2>
+    <div class="msub">Bug reports, suggestions, general thoughts — all welcome.</div>
+    <div id="lp-fb-form">
+      <textarea id="lp-fb-text" placeholder="Write freely..."></textarea>
+      <div class="lp-md-acts">
+        <button class="lp-btn lp-btn-g" onclick="document.getElementById('lp-feedback-mo').classList.remove('open')">Cancel</button>
+        <button class="lp-btn lp-btn-p" id="lp-fb-btn" onclick="lpSubmitFeedback()">Send feedback</button>
+      </div>
+    </div>
+    <div id="lp-fb-success" style="display:none;text-align:center;padding:24px 0;">
+      <svg viewBox="0 0 48 48" fill="none" width="40" height="40" style="margin-bottom:12px;"><circle cx="24" cy="24" r="22" stroke="#13ce66" stroke-width="2"/><path d="M14 24l7 7 13-14" stroke="#13ce66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-size:15px;font-weight:700;color:#1a1018;margin-bottom:6px;">Feedback sent.</div>
+      <div style="font-size:13px;color:rgba(26,16,24,.55);">Thanks for taking the time. It genuinely helps.</div>
+    </div>
+  </div>
+</div>
 <!-- Quick Note Modal -->
 <div id="qn-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:20px;padding:32px;width:480px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3);color:#1a1018;position:relative;">
@@ -406,6 +467,59 @@ function saveQN(){
   window.location.href='index.html#notes';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('qn-modal').style.display='none';});
+</script>
+
+<script>
+// Landing page avatar + feedback
+function lpToggleDD(){
+  var btn = document.getElementById('lp-av-btn');
+  btn.classList.toggle('dd-open');
+}
+document.addEventListener('click', function(e){
+  var btn = document.getElementById('lp-av-btn');
+  if(btn && !btn.contains(e.target)) btn.classList.remove('dd-open');
+});
+function lpOpenFeedback(){
+  document.getElementById('lp-av-btn').classList.remove('dd-open');
+  document.getElementById('lp-fb-text').value='';
+  document.getElementById('lp-fb-form').style.display='block';
+  document.getElementById('lp-fb-success').style.display='none';
+  var btn=document.getElementById('lp-fb-btn');
+  btn.disabled=false; btn.textContent='Send feedback';
+  document.getElementById('lp-feedback-mo').classList.add('open');
+}
+function lpSubmitFeedback(){
+  var text=document.getElementById('lp-fb-text').value.trim();
+  if(!text) return;
+  var btn=document.getElementById('lp-fb-btn');
+  btn.disabled=true; btn.textContent='Sending...';
+  // Try to get user info from localStorage
+  var userEmail='—'; var userName='?';
+  try{
+    var s=localStorage.getItem('sb-'+Object.keys(localStorage).find(function(k){return k.startsWith('sb-')||false}));
+  }catch(e){}
+  fetch('https://formspree.io/f/xykbjwrz',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({message:text,source:'Focal Point course landing page',page:window.location.pathname})
+  })
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d.ok){
+      document.getElementById('lp-fb-form').style.display='none';
+      document.getElementById('lp-fb-success').style.display='block';
+    } else { btn.disabled=false; btn.textContent='Send feedback'; }
+  })
+  .catch(function(){ btn.disabled=false; btn.textContent='Send feedback'; });
+}
+// Set avatar initial from localStorage display name if available
+(function(){
+  try{
+    var name=localStorage.getItem('pc26_name');
+    var el=document.getElementById('lp-av-initial');
+    if(name && el) el.textContent=name.charAt(0).toUpperCase();
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
