@@ -120,6 +120,23 @@ body{font-family:'Poppins',sans-serif;background:var(--grad);background-attachme
 .qnfab-btn{background:var(--yellow);color:#1a1018;border:none;border-radius:99px;width:58px;height:58px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(234,204,40,.5),0 2px 8px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s;font-size:22px;line-height:1;text-decoration:none;}
 .qnfab-btn:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(234,204,40,.7),0 3px 12px rgba(0,0,0,.3);}
 
+
+/* ── OTHER COURSES SECTION ───────────────────────────────────────────────── */
+.oc-section{margin-top:56px;max-width:880px;margin-left:auto;margin-right:auto;padding:0 24px 80px;}
+.oc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;}
+.oc-heading{font-size:22px;font-weight:800;letter-spacing:-.02em;color:#FFFCF6;margin-bottom:20px;}
+.oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:720px){.oc-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:440px){.oc-grid{grid-template-columns:1fr;}}
+.oc-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--on-grad);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;}
+.oc-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.25);}
+.oc-img{width:100%;aspect-ratio:16/9;background-size:cover;background-position:center;background-color:rgba(159,33,126,.15);}
+.oc-body{padding:12px 14px 14px;display:flex;flex-direction:column;flex:1;}
+.oc-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(234,204,40,.15);color:#EACC28;border-radius:99px;padding:3px 9px;margin-bottom:7px;width:fit-content;}
+.oc-name{font-size:12px;font-weight:700;color:#FFFCF6;line-height:1.35;margin-bottom:5px;}
+.oc-tag{font-size:11px;color:var(--on-grad-muted);line-height:1.5;flex:1;margin-bottom:8px;}
+.oc-price{font-size:12.5px;font-weight:700;color:var(--yellow);}
+
 </style>
 </head>
 <body>
@@ -315,6 +332,58 @@ function toggleDark(on){
 })();
 </script>
 
+
+  <div class="oc-section">
+    <div class="oc-eyebrow">More from Focal Point</div>
+    <div class="oc-heading">Other courses</div>
+    <div class="oc-grid">
+      <a href="portraiture.html" class="oc-card">
+        <div class="oc-img" style="background-image:url('img/course-portraiture.jpg');"></div>
+        <div class="oc-body">
+          <span class="oc-badge">Coming Soon</span>
+          <div class="oc-name">Portraiture: Family, Lifestyle &amp; Couples</div>
+          <div class="oc-tag">Real-life portraiture for photographers ready to find their niche and shoot with consistency.</div>
+          <div class="oc-price">$149</div>
+        </div>
+      </a>
+      <a href="street-photography.html" class="oc-card">
+        <div class="oc-img" style="background-image:url('img/course-street.jpg');"></div>
+        <div class="oc-body">
+          <span class="oc-badge">Coming Soon</span>
+          <div class="oc-name">Street Photography</div>
+          <div class="oc-tag">Chase the decisive moment. Find the human element.</div>
+          <div class="oc-price">$119</div>
+        </div>
+      </a>
+      <a href="travel-photography.html" class="oc-card">
+        <div class="oc-img" style="background-image:url('img/course-travel.jpg');"></div>
+        <div class="oc-body">
+          <span class="oc-badge">Coming Soon</span>
+          <div class="oc-name">Documentary Travel Photography</div>
+          <div class="oc-tag">Travel photography that goes beyond the postcard.</div>
+          <div class="oc-price">$129</div>
+        </div>
+      </a>
+      <a href="visual-narrative.html" class="oc-card">
+        <div class="oc-img" style="background-image:url('img/course-narrative.jpg');"></div>
+        <div class="oc-body">
+          <span class="oc-badge">Coming Soon</span>
+          <div class="oc-name">Visual Narrative</div>
+          <div class="oc-tag">Intentional photography that shows the world from your point of view.</div>
+          <div class="oc-price">$149</div>
+        </div>
+      </a>
+      <a href="photography-business.html" class="oc-card">
+        <div class="oc-img" style="background-image:url('img/course-business.jpg');"></div>
+        <div class="oc-body">
+          <span class="oc-badge">Coming Soon</span>
+          <div class="oc-name">Running a Small Photography Business</div>
+          <div class="oc-tag">Everything you need to run a photography business that&#8217;s sustainable, profitable, and actually yours.</div>
+          <div class="oc-price">$279</div>
+        </div>
+      </a>
+    </div>
+  </div>
 <!-- Quick Note Modal -->
 <div id="qn-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:20px;padding:32px;width:480px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3);color:#1a1018;position:relative;">
