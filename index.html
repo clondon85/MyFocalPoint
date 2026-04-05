@@ -3280,7 +3280,7 @@ function setFbCat(el) {
   el.style.color = '#fff';
 }
 
-function submitFeedback() {
+function submitFeedbackModal() {
   var text = (document.getElementById('fb-text').value || '').trim();
   var msg = document.getElementById('fb-msg');
   if (!_fbRating) { msg.textContent = 'Please select a rating.'; return; }
@@ -3894,7 +3894,7 @@ function saveModalNote() {
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
       <div id="fb-msg" style="font-size:11px;color:var(--on-card-muted);"></div>
-      <button onclick="submitFeedback()" style="background:var(--mag);color:#fff;border:none;border-radius:99px;padding:10px 24px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Send feedback</button>
+      <button onclick="submitFeedbackModal()" style="background:var(--mag);color:#fff;border:none;border-radius:99px;padding:10px 24px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Send feedback</button>
     </div>
   </div>
 </div>
