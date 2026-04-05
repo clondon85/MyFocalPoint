@@ -1805,41 +1805,16 @@ function submitFeedback() {
   var text = document.getElementById('feedback-text').value.trim();
   if (!text) { toast('Please write something first.'); return; }
 
-  var btn = document.getElementById('feedback-submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
+  var userEmail = currentUser ? currentUser.email : 'unknown';
+  var userName = (D && D['display_name']) ? D['display_name'] : userEmail;
+  var subject = encodeURIComponent('My Focal Point Feedback');
+  var body = encodeURIComponent(
+    'From: ' + userName + ' (' + userEmail + ')\n\n' + text
+  );
 
-  // Get user info from Supabase session
-  var userEmail = document.getElementById('sb-email') ? document.getElementById('sb-email').textContent : 'Unknown';
-  var userName = document.getElementById('sb-av') ? document.getElementById('sb-av').textContent : '?';
-
-  fetch('https://formspree.io/f/xykbjwrz', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      message: text,
-      _replyto: userEmail,
-      name: userName,
-      email: userEmail,
-      source: 'My Focal Point dashboard'
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data.ok) {
-      document.getElementById('feedback-form-wrap').style.display = 'none';
-      document.getElementById('feedback-success').style.display = 'block';
-    } else {
-      toast('Something went wrong. Please try again.');
-      btn.disabled = false;
-      btn.textContent = 'Send feedback';
-    }
-  })
-  .catch(function() {
-    toast('Something went wrong. Please try again.');
-    btn.disabled = false;
-    btn.textContent = 'Send feedback';
-  });
+  window.open('mailto:focalpointfeedback@gmail.com?subject=' + subject + '&body=' + body);
+  document.getElementById('feedback-form-wrap').style.display = 'none';
+  document.getElementById('feedback-success').style.display = 'block';
 }
 
 function toast(msg) {
