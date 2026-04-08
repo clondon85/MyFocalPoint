@@ -1646,10 +1646,9 @@ function toggleLesson(uid, idx) {
     var vals = Object.values(COMPLETION);
     var total = Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length);
     pill.textContent = total + "% complete";
-renderCoursePace();
+  }
+  renderCoursePace();
   syncCourseCompletionGoals();
-  clearTimeout(_saveTimer);
-  persistNow();
 }
 
 // Recalculate overall course pct and update any "Course completion" goal cards + Supabase
@@ -1705,9 +1704,6 @@ function persistNow() {
       }
     });
 }
-window.addEventListener('beforeunload', function() {
-  if (_saveTimer) { clearTimeout(_saveTimer); persistNow(); }
-});
 function showSaveIndicator() {
   var el = document.getElementById("save-indicator");
   if (!el) return;
@@ -2433,7 +2429,7 @@ function buildUnitContent(uid, u) {
       var savedVal = (D["uprompt_" + uid + "_" + pidx] || "").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       content += '<div class="prompt-pane' + (pidx === 0 ? ' active' : '') + '" id="ppane-' + uid + '-' + pidx + '">'
         + '<div style="font-size:14px;font-weight:500;margin-bottom:12px;color:var(--on-card);">' + q + '</div>'
-        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)" onblur="clearTimeout(_saveTimer);persistNow();">' + savedVal + '</textarea>
+        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)">' + savedVal + '</textarea>'
         + '</div>';
     });
     content += '</div>';
@@ -2445,7 +2441,7 @@ function buildUnitContent(uid, u) {
     s.fields.forEach(function(f) {
       var val = (D[f.id] || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
       content += '<div><label class="f-label">' + f.label + '</label>'
-        + '<textarea class="rf-area" id="' + f.id + '" placeholder="' + f.ph + '" rows="' + f.rows + '" oninput="autoSave(this.dataset.fid,this.value)" onblur="clearTimeout(_saveTimer);persistNow();" data-fid="' + f.id + '">' + val + '</textarea></div>';
+        + '<textarea class="rf-area" id="' + f.id + '" placeholder="' + f.ph + '" rows="' + f.rows + '" oninput="autoSave(this.dataset.fid,this.value)" data-fid="' + f.id + '">' + val + '</textarea></div>';
     });
     content += '</div></div>';
   });
