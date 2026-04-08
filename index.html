@@ -2433,7 +2433,7 @@ function buildUnitContent(uid, u) {
       var savedVal = (D["uprompt_" + uid + "_" + pidx] || "").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       content += '<div class="prompt-pane' + (pidx === 0 ? ' active' : '') + '" id="ppane-' + uid + '-' + pidx + '">'
         + '<div style="font-size:14px;font-weight:500;margin-bottom:12px;color:var(--on-card);">' + q + '</div>'
-        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)" onblur="clearTimeout(_saveTimer);persistNow();">' + savedVal + '</textarea>
+        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)" onblur="clearTimeout(_saveTimer);persistNow();">' + savedVal + '</textarea>'
         + '</div>';
     });
     content += '</div>';
