@@ -1646,7 +1646,8 @@ function toggleLesson(uid, idx) {
     var vals = Object.values(COMPLETION);
     var total = Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length);
     pill.textContent = total + "% complete";
-renderCoursePace();
+  }
+  renderCoursePace();
   syncCourseCompletionGoals();
   clearTimeout(_saveTimer);
   persistNow();
