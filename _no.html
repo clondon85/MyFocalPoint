@@ -462,23 +462,19 @@ body{
 @media(max-width:520px){.main{padding:66px 12px 80px;}.stats{gap:9px;}.sc{padding:14px;}.sv{font-size:22px;}}
 
 /* ── MOBILE POLISH ───────────────────────────────────────────────────────────── */
-/* Login */
 @media(max-width:440px){
   .login-box{padding:28px 20px;border-radius:16px;}
 }
-/* Progress tiles: boost font sizes since vw-based values go tiny in narrow grids */
 @media(max-width:600px){
   .ptile-name-text{font-size:12px;}
   .ptile-badge-text{font-size:8px;}
   .ptile-pct-text{font-size:8px;}
 }
-/* Unit viewer bar: collapse on small screens */
 @media(max-width:600px){
   .uv-bar{padding:0 12px;gap:8px;}
   .uv-back{font-size:10px;padding:5px 10px;}
   .uv-title{font-size:12px;}
 }
-/* Journal sidebar: horizontal pill strip on mobile */
 @media(max-width:700px){
   .journal-sidebar{overflow-x:auto;overflow-y:hidden;max-height:52px;padding:8px 12px;display:flex;align-items:center;}
   #jsb-list{display:flex;flex-direction:row;gap:6px;padding:0;white-space:nowrap;overflow:visible;}
@@ -488,29 +484,23 @@ body{
   .jsb-prog{display:none;}
   .jsb-unit-name{font-size:11px;}
 }
-/* Tour bubble: constrain width on small screens */
 @media(max-width:440px){
   #tour-bubble{max-width:calc(100vw - 24px) !important;width:calc(100vw - 24px) !important;left:12px !important;}
 }
-/* Suggested goals modal: full-width on small screens */
 @media(max-width:600px){
   #modal-sug-goals > div{margin:20px 12px;padding:22px 16px 16px;border-radius:16px;}
 }
-/* Stats: single column only on truly tiny screens */
 @media(max-width:380px){
   .stats{grid-template-columns:1fr 1fr;}
   .sv{font-size:20px;}
   .sc{padding:12px;}
 }
-/* Goals grid on mobile */
 @media(max-width:520px){
   .ugc{padding:14px;}
 }
-/* Quick notes composer on mobile */
 @media(max-width:520px){
   .pc{padding:16px;}
 }
-/* Reflections unit header on mobile */
 @media(max-width:520px){
   .journal-title{padding:12px 0 14px;}
   .journal-title h2{font-size:18px;}
@@ -523,21 +513,15 @@ body{
   .view{display:block!important;animation:none!important;}
   .unit-body{display:block!important;}
   body{background:#fff!important;color:#000!important;background-attachment:unset!important;}
-
-  /* prevent content from splitting across pages */
   .card,.unit-block,.note-card,.gc,.unit-section,.field-block,.field-row,.assign-grid{
     page-break-inside:avoid!important;
     break-inside:avoid!important;
   }
-  /* keep unit headers with their content */
   .unit-hd{page-break-after:avoid!important;break-after:avoid!important;}
-  /* force each unit block to start fresh if needed */
   .unit-block{page-break-before:auto!important;break-before:auto!important;margin-bottom:16px!important;}
-
   .card,.unit-block,.start-card,.note-card,.gc{box-shadow:none!important;border:1px solid #ddd!important;background:#fff!important;}
   .rf-area,.fi,.fta{background:#f5f5f5!important;border:1px solid #ccc!important;color:#000!important;}
   textarea{min-height:auto!important;resize:none!important;}
-  /* strip gradient, show text cleanly */
   .ph-ey{color:#9F217E!important;}
   .ph-ti{color:#1a1018!important;}
   .us-hd{color:#9F217E!important;}
@@ -556,12 +540,8 @@ body{
 .fl{font-size:11.5px;font-weight:700;color:#1a1018;margin-bottom:5px;display:block;letter-spacing:.04em;text-transform:uppercase;}
 .fta{width:100%;background:#f5f0f7;border:1.5px solid rgba(159,33,126,.18);border-radius:10px;padding:10px 13px;font-family:'Poppins',sans-serif;font-size:13px;color:#1a1018;resize:vertical;outline:none;min-height:80px;line-height:1.55;}.fta:focus{border-color:var(--mag);}.fta::placeholder{color:rgba(26,16,24,.35);}
 .md-acts{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;}
-/* btn-g on white cards: teal stroke + teal text */
 .card .btn-g,.start-card .btn-g,.um-section .btn-g,.gc .btn-g{background:transparent;color:#1f6b76;border:2px solid #1f6b76;}.card .btn-g:hover,.start-card .btn-g:hover{background:rgba(31,107,118,.07);border-color:#1f6b76;}
-/* override btn-g inside modals to use mag outline on white bg */
 .md .btn-g{background:transparent;color:var(--mag);border:2px solid rgba(159,33,126,.3);}.md .btn-g:hover{background:rgba(159,33,126,.06);border-color:var(--mag);}
-
-
 
 /* ── UNIT PROGRESS TILE GRID ─────────────────────────────────────────────────── */
 .prog-tiles{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);gap:8px;flex:1;min-height:0;}
@@ -572,11 +552,8 @@ body{
 .ptile-badge{font-size:9px;font-weight:800;color:#1a1018;letter-spacing:.04em;text-transform:uppercase;opacity:.7;margin-bottom:1px;line-height:1;}
 .ptile-pct{font-size:9px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);letter-spacing:.03em;}
 .ptile.done .ptile-badge{background:var(--yellow);color:#1a1018;}
-
 .aph-add.drag-over{border-color:var(--mag);background:rgba(159,33,126,.12);}
 .ptile.done{border-color:rgba(234,204,40,.6);}
-
-/* Tile text — scales with tile size using container-relative units */
 .ptile-badge-text{font-size:clamp(7px,0.7vw,10px);font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px;line-height:1;color:rgba(26,16,24,.5);}
 .ptile-name-text{font-size:clamp(11px,1.1vw,15px);font-weight:800;line-height:1.2;color:#1a1018;text-wrap:balance;overflow-wrap:break-word;}
 .ptile-pct-text{font-size:clamp(8px,0.75vw,11px);font-weight:700;margin-top:3px;}
@@ -590,7 +567,6 @@ body{
 
 /* ── REFLECTIONS SIDEBAR LAYOUT ──────────────────────────────────────────────── */
 .journal-layout{display:flex;align-items:flex-start;min-height:calc(100vh - 58px);gap:20px;}
-
 .journal-sidebar{width:260px;flex-shrink:0;position:sticky;top:58px;max-height:calc(100vh - 58px);overflow-y:auto;padding:0;background:var(--card);border-radius:16px;border:1px solid rgba(255,255,255,.45);box-shadow:0 4px 18px rgba(0,0,0,.12);align-self:flex-start;overflow:hidden;}
 #jsb-list{padding-top:6px;padding-bottom:6px;}
 .jsb-unit{display:flex;flex-direction:column;gap:2px;padding:7px 16px;cursor:pointer;border-left:3px solid transparent;transition:background .15s,border-color .15s;flex:1;justify-content:center;}
@@ -617,9 +593,6 @@ body{
 .unb:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.5);}
 .unb.active{background:var(--yellow);border-color:var(--yellow);color:#1a1018;}
 
-/* Dark mode: mag is too dark for text on dark cards, use lighter variant */
-
-/* Dark mode: restore teal for elements where we darkened it for light mode */
 [data-theme="dark"] .pill-t,
 [data-theme="dark"] .pc-done,
 [data-theme="dark"] .u-t,
@@ -646,8 +619,6 @@ body{
 .qnfab-btn{background:var(--yellow);color:#1a1018;border:none;border-radius:99px;width:58px;height:58px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(234,204,40,.5),0 2px 8px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s;font-size:22px;line-height:1;}
 .qnfab-btn:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(234,204,40,.7),0 3px 12px rgba(0,0,0,.3);}
 .qnfab-btn svg{width:22px;height:22px;}
-/* ── TUTORIAL ────────────────────────────────────────────────────────────────── */
-
 
 /* ── COURSE UNIT GRID & VIEWER ───────────────────────────────────────────────── */
 .ptile.ptile-locked{opacity:.42;cursor:default;background:#f0ecf4;}
@@ -663,7 +634,6 @@ body{
 .uv-title{font-size:14px;font-weight:700;color:#FFFCF6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .uv-sub{font-size:11px;color:rgba(255,252,246,.5);margin-top:1px;}
 .uv-iframe{border:none;width:100%;flex:1;display:block;background:#fff;min-height:0;}
-
 
 /* ── TOUR ──────────────────────────────────────────────────────────────────── */
 #tour-overlay{position:fixed;inset:0;z-index:1100;pointer-events:none;}
@@ -741,14 +711,13 @@ a.tni{text-decoration:none;}
 <div class="sb-overlay" id="sbOverlay" onclick="closeSb()"></div>
 <div class="topbar" id="topbar">
   <a href="https://www.thefocalpointhub.com" target="_blank" class="topbar-logo">
-    <img src="data:image/png;base64,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" alt="Focal Point">
+    <img src="data:image/png;base64,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..." alt="Focal Point">
   </a>
   <nav class="topbar-nav" id="topbar-nav">
     <button class="tni" id="tnav-dashboard" data-v="dashboard" onclick="nav('dashboard')"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/></svg>Dashboard</button><button class="tni" id="tnav-journal" data-v="journal" onclick="nav('journal')"><svg viewBox="0 0 16 16" fill="none"><path d="M3 4h10M3 7.5h10M3 11h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Reflections</button><button class="tni" id="tnav-goals" data-v="goals" onclick="nav('goals')"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>Goals</button><button class="tni" id="tnav-gallery" data-v="gallery" onclick="nav('gallery')"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="7" r="1.5" fill="currentColor" opacity=".5"/><path d="M1 12l4-3 2.5 2 3-4 4.5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Gallery</button><button class="tni" id="tnav-notes" data-v="notes" onclick="nav('notes')"><svg viewBox="0 0 16 16" fill="none"><path d="M3 2h7l3 3v9H3V2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 2v3h3" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M5 7h6M5 9.5h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Quick Notes</button><a class="tni" href="https://ko-fi.com/focalpoint_clondon" target="_blank" rel="noopener" title="Support Focal Point on Ko-fi" style="color:#EACC28;"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13s-5-3.5-5-7a3 3 0 016 0 3 3 0 016 0c0 3.5-5 7-5 7z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Support</a>
     <a class="tni" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" title="Join the Discord community"><svg viewBox="0 0 16 16" fill="none"><path d="M6.4 2C4.8 2.4 3.3 3.2 2 4.3c-.1 3.2.8 6 2.8 7.8.5-.6 1-1.3 1.3-2-.4-.2-.9-.4-1.2-.7l.3-.6c1.7.9 3.7.9 5.4 0l.3.6c-.4.3-.8.5-1.2.7.3.7.8 1.4 1.3 2C12.9 10.3 13.8 7.5 14 4.3c-1.3-1.1-2.8-1.9-4.4-2.3L9 3.1C8 3 7 3 6 3.1L6.4 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.8" cy="8" r="1.1" fill="currentColor"/><circle cx="10.2" cy="8" r="1.1" fill="currentColor"/></svg>Discord</a>
   </nav>
   <div class="topbar-right">
-    <!-- dark mode toggle in topbar -->
     <div style="display:flex;align-items:center;gap:7px;">
       <button onclick="startTour()" title="Replay tour" style="background:none;border:none;cursor:pointer;color:rgba(255,252,246,.5);display:flex;align-items:center;padding:4px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='rgba(255,252,246,.9)'" onmouseout="this.style.color='rgba(255,252,246,.5)'"><svg viewBox="0 0 16 16" fill="none" width="15" height="15"><path d="M2 8a6 6 0 106-6H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M4 5L6 8H2L4 5z" fill="currentColor"/></svg></button>
       <span id="dmLbl" style="font-size:11px;color:rgba(255,252,246,.5);display:none;" class="dm-lbl-topbar">Light</span><span id="dmIcon" style="display:flex;align-items:center;width:14px;height:14px;color:rgba(255,252,246,.65);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
@@ -785,19 +754,13 @@ a.tni{text-decoration:none;}
 <!-- OLD SIDEBAR (hidden, preserved for JS compatibility) -->
 <nav class="sb" id="sidebar" style="display:none;"></nav>
 <nav class="bnav">
-  
-  
-  
-  
 </nav>
 <main class="main">
 <!-- DASHBOARD -->
 <div class="view active" id="view-dashboard">
   <div class="ph">
     <div><div class="ph-ey">My Focal Point</div><div class="ph-ti">Good to see you, <b id="dash-name">there</b>.</div><div id="dash-unit-line" style="font-size:15px;font-weight:500;color:var(--on-grad-muted);margin-top:4px;"></div></div>
-    <div class="ph-acts">
-
-    </div>
+    <div class="ph-acts"></div>
   </div>
   <div class="stats" id="tour-stats">
     <div class="sc" onclick="nav('journal')"><div class="sl">Sections complete</div><div class="sv" id="dash-sc">0 <em>/ 12</em></div><div class="sd up" id="dash-sd">Keep going</div></div>
@@ -821,8 +784,6 @@ a.tni{text-decoration:none;}
       </div>
     </div>
   </div>
-
-  <!-- OTHER COURSES -->
   <div class="oc-section">
     <div class="oc-header">
       <div>
@@ -831,70 +792,14 @@ a.tni{text-decoration:none;}
       </div>
     </div>
     <div class="oc-grid">
-
-      <a href="portraiture.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-portraiture.jpg');"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Portraiture: Family, Lifestyle &amp; Couples</div>
-          <div class="oc-tag">Real-life portraiture for photographers ready to find their niche and shoot with consistency.</div>
-          <div class="oc-price">$149</div>
-        </div>
-      </a>
-
-      <a href="street-photography.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-street.jpg');"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Street Photography</div>
-          <div class="oc-tag">Chase the decisive moment. Find the human element.</div>
-          <div class="oc-price">$119</div>
-        </div>
-      </a>
-
-      <a href="travel-photography.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-travel.jpg');"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Documentary Travel Photography</div>
-          <div class="oc-tag">Travel photography that goes beyond the postcard.</div>
-          <div class="oc-price">$129</div>
-        </div>
-      </a>
-
-      <a href="visual-narrative.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-narrative.jpg');"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Visual Narrative</div>
-          <div class="oc-tag">Intentional photography that shows the world from your point of view.</div>
-          <div class="oc-price">$149</div>
-        </div>
-      </a>
-
-      <a href="local-seo.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-seo.jpg');background-position:top center;"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Local SEO for Photographers</div>
-          <div class="oc-tag">Get found by the clients already looking for you.</div>
-          <div class="oc-price">$99</div>
-        </div>
-      </a>
-
-      <a href="photography-business.html" class="oc-card">
-        <div class="oc-img" style="background-image:url('img/course-business.jpg');"></div>
-        <div class="oc-body">
-          <span class="oc-badge">Coming Soon</span>
-          <div class="oc-name">Running a Small Photography Business</div>
-          <div class="oc-tag">Everything you need to run a photography business that's sustainable, profitable, and actually yours.</div>
-          <div class="oc-price">$279</div>
-        </div>
-      </a>
-
+      <a href="portraiture.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-portraiture.jpg');"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Portraiture: Family, Lifestyle &amp; Couples</div><div class="oc-tag">Real-life portraiture for photographers ready to find their niche and shoot with consistency.</div><div class="oc-price">$149</div></div></a>
+      <a href="street-photography.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-street.jpg');"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Street Photography</div><div class="oc-tag">Chase the decisive moment. Find the human element.</div><div class="oc-price">$119</div></div></a>
+      <a href="travel-photography.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-travel.jpg');"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Documentary Travel Photography</div><div class="oc-tag">Travel photography that goes beyond the postcard.</div><div class="oc-price">$129</div></div></a>
+      <a href="visual-narrative.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-narrative.jpg');"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Visual Narrative</div><div class="oc-tag">Intentional photography that shows the world from your point of view.</div><div class="oc-price">$149</div></div></a>
+      <a href="local-seo.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-seo.jpg');background-position:top center;"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Local SEO for Photographers</div><div class="oc-tag">Get found by the clients already looking for you.</div><div class="oc-price">$99</div></div></a>
+      <a href="photography-business.html" class="oc-card"><div class="oc-img" style="background-image:url('img/course-business.jpg');"></div><div class="oc-body"><span class="oc-badge">Coming Soon</span><div class="oc-name">Running a Small Photography Business</div><div class="oc-tag">Everything you need to run a photography business that's sustainable, profitable, and actually yours.</div><div class="oc-price">$279</div></div></a>
     </div>
   </div>
-
 </div>
 <!-- NOTES -->
 <div class="view" id="view-notes">
@@ -902,20 +807,10 @@ a.tni{text-decoration:none;}
     <div><div class="ph-ey">Capture as you go</div><div class="ph-ti">Quick <b>notes.</b></div></div>
     <div class="ph-acts">
       <button class="btn btn-p btn-sm" onclick="openQuickNote()">+ Add note</button>
-      <select class="fse notes-filter-sel" id="notes-filter-unit" onchange="renderNotes()">
-        <option value="all">All units</option>
-      </select>
-      <select class="fse notes-filter-sel" id="notes-filter-tag" onchange="renderNotes()">
-        <option value="all">All tags</option>
-        <option value="observation">Observation</option>
-        <option value="question">Question</option>
-        <option value="idea">Idea</option>
-        <option value="win">Win</option>
-        <option value="challenge">Challenge</option>
-      </select>
+      <select class="fse notes-filter-sel" id="notes-filter-unit" onchange="renderNotes()"><option value="all">All units</option></select>
+      <select class="fse notes-filter-sel" id="notes-filter-tag" onchange="renderNotes()"><option value="all">All tags</option><option value="observation">Observation</option><option value="question">Question</option><option value="idea">Idea</option><option value="win">Win</option><option value="challenge">Challenge</option></select>
     </div>
   </div>
-  <!-- hidden selects still needed for addNote() in FAB -->
   <select id="note-unit" style="display:none;"></select>
   <textarea id="note-text" style="display:none;"></textarea>
   <select id="note-tag" style="display:none;"></select>
@@ -925,9 +820,7 @@ a.tni{text-decoration:none;}
 <div class="view" id="view-journal">
   <div class="journal-title" id="journal-title" style="display:none;padding:16px 0 20px 0;"></div>
   <div class="journal-layout">
-    <div class="journal-sidebar" id="journal-sidebar">
-      <div id="jsb-list"></div>
-    </div>
+    <div class="journal-sidebar" id="journal-sidebar"><div id="jsb-list"></div></div>
     <div class="journal-panel" id="journal-panel">
       <div class="journal-panel-empty" id="journal-panel-empty">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="8" width="36" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M14 18h20M14 24h20M14 30h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -942,10 +835,7 @@ a.tni{text-decoration:none;}
   <div class="um-inner">
     <div class="um-topbar">
       <button class="um-back" onclick="closeUnitModal()">← Dashboard</button>
-      <div style="flex:1;">
-        <div class="um-title" id="um-title"></div>
-        <div class="um-sub" id="um-sub"></div>
-      </div>
+      <div style="flex:1;"><div class="um-title" id="um-title"></div><div class="um-sub" id="um-sub"></div></div>
       <div id="um-topbar-next"></div>
     </div>
     <div id="um-content"></div>
@@ -969,14 +859,12 @@ a.tni{text-decoration:none;}
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><div style="font-size:13px;font-weight:700;color:#FFFCF6;letter-spacing:.02em;">My goals</div></div>
   <div class="goal-grid" id="goal-grid"></div>
   <div id="goals-suggestions" style="display:none;margin-top:16px;"></div>
-
 </div>
 <!-- GALLERY -->
 <div class="view" id="view-gallery">
   <div class="ph"><div><div class="ph-ey">Click any photo to view your reflection</div><div class="ph-ti">Assignment <b>gallery.</b></div></div></div>
   <div class="gal-grid" id="gal-grid"></div>
 </div>
-
 </main>
 
 <div id="privacy-note" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(20,10,30,.85);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:8px 24px;font-size:10px;color:rgba(255,252,246,.4);text-align:center;z-index:300;line-height:1.5;">
@@ -988,17 +876,13 @@ a.tni{text-decoration:none;}
   <div class="uv-bar">
     <button class="uv-back" onclick="closeUnitViewer()">← Dashboard</button>
     <div class="uv-divider"></div>
-    <div class="uv-meta">
-      <div class="uv-title" id="uv-title"></div>
-      <div class="uv-sub" id="uv-sub"></div>
-    </div>
+    <div class="uv-meta"><div class="uv-title" id="uv-title"></div><div class="uv-sub" id="uv-sub"></div></div>
     <div style="display:flex;gap:8px;flex-shrink:0;margin-left:auto;">
       <button class="uv-back" id="uv-prev-btn" onclick="uvNav(-1)" style="visibility:hidden;">← Prev unit</button>
       <button class="uv-back" id="uv-next-btn" onclick="uvNav(1)" style="visibility:hidden;">Next unit →</button>
     </div>
   </div>
   <iframe class="uv-iframe" id="uv-iframe" src="" allowfullscreen></iframe>
-
 </div>
 
 <!-- MODAL: Set Name (first login) -->
@@ -1006,10 +890,7 @@ a.tni{text-decoration:none;}
   <div class="md">
     <h2>Welcome to My Focal Point.</h2>
     <div class="msub">What should we call you?</div>
-    <div class="fg">
-      <label class="fl">Your name</label>
-      <input class="fi" type="text" id="setname-input" placeholder="First name or nickname" maxlength="40" onkeydown="if(event.key==='Enter')saveDisplayName()">
-    </div>
+    <div class="fg"><label class="fl">Your name</label><input class="fi" type="text" id="setname-input" placeholder="First name or nickname" maxlength="40" onkeydown="if(event.key==='Enter')saveDisplayName()"></div>
     <div class="md-acts"><button class="btn btn-p" onclick="saveDisplayName()">Get started →</button></div>
   </div>
 </div>
@@ -1018,16 +899,13 @@ a.tni{text-decoration:none;}
 <div class="mo" id="modal-gallery-lb">
   <div class="md" style="max-width:720px;padding:0;overflow:hidden;border-radius:18px;">
     <button class="md-close" onclick="closeModal('modal-gallery-lb')" aria-label="Close" style="position:absolute;top:14px;right:14px;z-index:10;">×</button>
-    <!-- carousel -->
     <div id="glb-carousel" style="position:relative;width:100%;background:#111;user-select:none;">
       <div id="glb-img-wrap" style="width:100%;max-height:420px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
         <img id="glb-img" src="" alt="" style="width:100%;max-height:420px;object-fit:contain;display:block;">
         <div id="glb-no-photo" style="display:none;padding:60px 20px;text-align:center;color:rgba(255,255,255,.4);font-size:13px;">No photos uploaded yet</div>
       </div>
-      <!-- nav arrows -->
       <button id="glb-prev" onclick="glbNav(-1)" style="display:none;position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:none;border-radius:99px;width:36px;height:36px;color:#fff;font-size:18px;cursor:pointer;z-index:5;line-height:1;">‹</button>
       <button id="glb-next" onclick="glbNav(1)" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:none;border-radius:99px;width:36px;height:36px;color:#fff;font-size:18px;cursor:pointer;z-index:5;line-height:1;">›</button>
-      <!-- dots + counter -->
       <div id="glb-indicator" style="display:none;position:absolute;bottom:10px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:6px;"></div>
     </div>
     <div style="padding:20px 24px;">
@@ -1047,15 +925,7 @@ a.tni{text-decoration:none;}
     <div class="fg"><label class="fl">Note</label><textarea class="fta" id="modal-note-text" placeholder="What's on your mind?" rows="4"></textarea></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
       <div class="fg" style="margin-bottom:0;"><label class="fl">Unit</label><select class="fi fse" id="modal-note-unit"></select></div>
-      <div class="fg" style="margin-bottom:0;"><label class="fl">Tag</label>
-        <select class="fi fse" id="modal-note-tag">
-          <option value="observation">Observation</option>
-          <option value="question">Question</option>
-          <option value="idea">Idea</option>
-          <option value="win">Win</option>
-          <option value="challenge">Challenge</option>
-        </select>
-      </div>
+      <div class="fg" style="margin-bottom:0;"><label class="fl">Tag</label><select class="fi fse" id="modal-note-tag"><option value="observation">Observation</option><option value="question">Question</option><option value="idea">Idea</option><option value="win">Win</option><option value="challenge">Challenge</option></select></div>
     </div>
     <div class="md-acts"><button class="btn btn-g" onclick="closeModal('modal-note')">Cancel</button><button class="btn btn-p" onclick="saveModalNote()">Save note</button></div>
   </div>
@@ -1066,9 +936,7 @@ a.tni{text-decoration:none;}
     <button class="md-close" onclick="closeModal('modal-goal')" aria-label="Close">×</button>
     <h2>Add a goal</h2><div class="msub">What do you want to work toward?</div>
     <div class="fg"><label class="fl">Goal</label><input class="fi" id="g-title" placeholder="e.g. Master manual focus for portraits"></div>
-    <div class="fg"><label class="fl">Category</label>
-      <select class="fse" id="g-cat"><option>Technical skill</option><option>Creative development</option><option>Personal project</option><option>Community</option><option>Equipment</option></select>
-    </div>
+    <div class="fg"><label class="fl">Category</label><select class="fse" id="g-cat"><option>Technical skill</option><option>Creative development</option><option>Personal project</option><option>Community</option><option>Equipment</option></select></div>
     <div class="fg"><label class="fl">Why does this matter?</label><textarea class="fta" id="g-why" placeholder="Connect it to something real..."></textarea></div>
     <div class="md-acts"><button class="btn btn-g" onclick="closeModal('modal-goal')">Cancel</button><button class="btn btn-p" onclick="addGoal()">Add goal</button></div>
   </div>
@@ -1096,14 +964,8 @@ a.tni{text-decoration:none;}
     <h2>Send feedback</h2>
     <div class="msub">What's on your mind? Bug reports, suggestions, general thoughts — all welcome.</div>
     <div id="feedback-form-wrap">
-      <div class="fg">
-        <label class="fl">Your feedback</label>
-        <textarea class="fta" id="feedback-text" placeholder="Write freely..." rows="5" style="min-height:120px;"></textarea>
-      </div>
-      <div class="md-acts">
-        <button class="btn btn-g" onclick="closeModal('modal-feedback')">Cancel</button>
-        <button class="btn btn-p" id="feedback-submit-btn" onclick="submitFeedback()">Send feedback</button>
-      </div>
+      <div class="fg"><label class="fl">Your feedback</label><textarea class="fta" id="feedback-text" placeholder="Write freely..." rows="5" style="min-height:120px;"></textarea></div>
+      <div class="md-acts"><button class="btn btn-g" onclick="closeModal('modal-feedback')">Cancel</button><button class="btn btn-p" id="feedback-submit-btn" onclick="submitFeedback()">Send feedback</button></div>
     </div>
     <div id="feedback-success" style="display:none;text-align:center;padding:24px 0;">
       <svg viewBox="0 0 48 48" fill="none" width="40" height="40" style="margin-bottom:12px;"><circle cx="24" cy="24" r="22" stroke="#13ce66" stroke-width="2"/><path d="M14 24l7 7 13-14" stroke="#13ce66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1292,7 +1154,6 @@ var GALLERY = [
   {id:"fp",title:"Final Project",prompt:"Your final project image: the one that best represents the whole body of work."}
 ];
 
-// Per-unit rotating prompts — all plain strings, no HTML tags
 var UNIT_PROMPTS = {
   "gs": [
     "What brought you here? What would it mean to you to come out the other side as a photographer?",
@@ -1356,7 +1217,6 @@ var UNIT_PROMPTS = {
   ]
 };
 
-// Schedule: every other Wednesday from Dec 31 2025
 var SCHEDULE = (function() {
   var items = [
     {key:"gs",label:"Getting Started"},
@@ -1382,7 +1242,6 @@ var SCHEDULE = (function() {
 
 var COMPLETION = {"gs":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"fp":0};
 
-// Lessons per unit — used for the checklist in the accordion
 var UNIT_LESSONS = {
   "gs": ["Before We Start","Six Months of Photography","FAQ","Meet your Teachers","Setting Yourself up for Success"],
   "1":  ["Understanding Photography","Inspiration & Feedback","What is a Camera?","Types of Cameras","Lenses","Focal Length","Raw vs JPEG","Digital Workflow"],
@@ -1398,15 +1257,11 @@ var UNIT_LESSONS = {
   "fp": ["Final Project","Ongoing Practice"]
 };
 
-// Suggested goals shown on first open
-// Returns a suggested goal list tuned to where the user actually is in the course
 function getSuggestedGoals() {
   var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
   var curKey = currentUnitKey();
   var curIdx = unitOrder.indexOf(String(curKey));
   if (curIdx < 0) curIdx = 0;
-
-  // early: gs–2 (just starting out)
   var early = [
     {title:"Shoot in full manual mode for one week", cat:"Technical skill", why:"Nothing builds confidence faster than knowing you control every setting."},
     {title:"Post in the community every week", cat:"Community", why:"Sharing work early removes the fear of sharing it later."},
@@ -1414,8 +1269,6 @@ function getSuggestedGoals() {
     {title:"Identify three photographers whose work inspires me", cat:"Creative development", why:"Knowing what you love helps you find your own voice faster."},
     {title:"Understand the full exposure triangle by end of Unit 2", cat:"Technical skill", why:"Aperture, shutter, and ISO: once these click, everything opens up."}
   ];
-
-  // mid-early: 3–5 (building fundamentals)
   var mid_early = [
     {title:"Master one compositional approach and use it intentionally", cat:"Technical skill", why:"Constraints force creativity and deepen understanding."},
     {title:"Shoot a small photo essay: 5 to 10 images on one theme", cat:"Creative development", why:"A cohesive series teaches you to edit your own eye."},
@@ -1423,8 +1276,6 @@ function getSuggestedGoals() {
     {title:"Revisit my earliest photos and note what has changed", cat:"Course completion", why:"Progress is invisible until you look back."},
     {title:"Experiment with one genre I have never tried", cat:"Creative development", why:"Discomfort is where the learning happens."}
   ];
-
-  // mid: 6–7 (halfway, personal project beginning)
   var mid = [
     {title:"Define and commit to a personal project concept", cat:"Personal project", why:"Having a clear why makes every shoot feel purposeful."},
     {title:"Shoot my personal project consistently through the second half", cat:"Personal project", why:"A finished body of work is the most meaningful outcome of this course."},
@@ -1432,8 +1283,6 @@ function getSuggestedGoals() {
     {title:"Master the focus and metering techniques from Unit 6", cat:"Technical skill", why:"Sharp, well-exposed images stop being something to worry about."},
     {title:"Document my creative process in My Focal Point every unit", cat:"Course completion", why:"The reflections are as valuable as the photos themselves."}
   ];
-
-  // late: 8–10 (refining, building toward final)
   var late = [
     {title:"Edit my personal project down to a cohesive final selection", cat:"Personal project", why:"Culling is where the real creative decisions happen."},
     {title:"Submit a complete, edited body of work as my final project", cat:"Course completion", why:"Finishing is the hardest and most important part."},
@@ -1441,13 +1290,11 @@ function getSuggestedGoals() {
     {title:"Establish a post-course shooting practice to keep momentum", cat:"Creative development", why:"The course ends. The practice should not."},
     {title:"Write a reflection on how my photography has changed this year", cat:"Course completion", why:"Articulating growth makes it real and repeatable."}
   ];
-
   if (curIdx <= 2) return early;
   if (curIdx <= 5) return mid_early;
   if (curIdx <= 7) return mid;
   return late;
 }
-// Keep SUGGESTED_GOALS as a live accessor so existing save/add code still works
 Object.defineProperty(window, "SUGGESTED_GOALS", {
   get: function() { return getSuggestedGoals(); },
   configurable: true
@@ -1456,7 +1303,6 @@ Object.defineProperty(window, "SUGGESTED_GOALS", {
 // ── SUPABASE ──────────────────────────────────────────────────────────────────
 var SUPABASE_URL = "https://gqteaokqruftfrfbsbmk.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxdGVhb2txcnVmdGZyZmJzYm1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNTA5NDIsImV4cCI6MjA4OTgyNjk0Mn0.SH-BCW9W9gA7P1XP7rKjbJV3sTm66fVFkqPwDVWLIyE";
-// Cross-browser safe storage — falls back to memory if localStorage blocked (Edge Enhanced Security, etc.)
 var _safeStorage = (function() {
   var _mem = {};
   try {
@@ -1527,7 +1373,6 @@ function submitLogin() {
       .then(function(res) {
         btn.disabled = false;
         if (res.error) {
-          // "Invalid login credentials" usually means no password is set for this account
           var msg = res.error.message;
           if (msg.toLowerCase().indexOf("invalid login credentials") !== -1 || msg.toLowerCase().indexOf("no password") !== -1) {
             showLoginMsg("No password is set for this account. Use the magic link option to sign in, or send yourself a magic link and then set a password from your settings.", true);
@@ -1557,17 +1402,8 @@ function signOut() {
 // ── STATE ─────────────────────────────────────────────────────────────────────
 var D = {}, goals = [], notes = [];
 
-function defaultGoals() {
-  return [
-    {title:"Complete all units",cat:"Personal project",why:"I want to follow through on something for the full year.",pct:40,done:false},
-    {title:"Shoot in manual for one month",cat:"Technical skill",why:"I default to aperture priority. I want to understand every dial.",pct:80,done:false},
-    {title:"Submit every assignment",cat:"Community",why:"Accountability to the community keeps me motivated.",pct:100,done:true}
-  ];
-}
-
 function loadUserData(callback) {
   var uid = currentUser.id;
-  // Load journal_data first — it's the most important, render as soon as it's ready
   sb.from("journal_data").select("data").eq("user_id", uid).maybeSingle()
     .then(function(res) {
       if (res.error) { console.error("[journal] load journal_data failed:", res.error); }
@@ -1577,13 +1413,9 @@ function loadUserData(callback) {
           if (D["unit_pct_" + k] !== undefined) COMPLETION[k] = D["unit_pct_" + k];
         });
       }
-      // Render immediately after core data loads — don't wait for photos/notes/goals
       if (callback) callback();
-
-      // Load goals and notes in background, re-render when done
       var pending = 2;
       function bgDone() { pending--; if (pending === 0) { renderDash(); } }
-
       sb.from("goals").select("*").eq("user_id", uid).order("created_at", {ascending:false})
         .then(function(res) {
           if (!res.error) goals = (res.data && res.data.length) ? res.data : [];
@@ -1596,7 +1428,6 @@ function loadUserData(callback) {
           }) : [];
           bgDone();
         });
-      // Photos loaded lazily on first gallery/unit-modal open
     });
 }
 
@@ -1614,33 +1445,26 @@ function toggleLesson(uid, idx) {
   var key = "lesson_" + uid + "_" + idx;
   var tsKey = "lesson_ts_" + uid + "_" + idx;
   var wasChecked = !!D[key];
-
   if (wasChecked) {
-    // Unchecking — clear check and timestamp
     D[key] = false;
     delete D[tsKey];
-    // If no lessons remain checked in this unit, clear unit start time
     var lessons = UNIT_LESSONS[uid] || [];
     var anyDone = lessons.some(function(l, i) { return D["lesson_" + uid + "_" + i]; });
     if (!anyDone) delete D["unit_start_" + uid];
-    // Clear unit complete time
     delete D["unit_done_" + uid];
   } else {
-    // Checking — record timestamp
     var now = Date.now();
     D[key] = true;
     D[tsKey] = now;
-    // Record unit start time if this is the first lesson checked in this unit
     if (!D["unit_start_" + uid]) D["unit_start_" + uid] = now;
-    // Record unit complete time if all lessons now done
     var lessons = UNIT_LESSONS[uid] || [];
     var allDone = lessons.every(function(l, i) { return D["lesson_" + uid + "_" + i]; });
     if (allDone) D["unit_done_" + uid] = now;
   }
-
   saveUnitProgress(uid);
-
-  // Refresh dash pill and course pace
+  // ── FIX 2: flush immediately on lesson toggle — discrete action, don't debounce ──
+  clearTimeout(_saveTimer);
+  persistNow();
   var pill = document.getElementById("dash-pct-pill");
   if (pill) {
     var vals = Object.values(COMPLETION);
@@ -1651,7 +1475,6 @@ function toggleLesson(uid, idx) {
   syncCourseCompletionGoals();
 }
 
-// Recalculate overall course pct and update any "Course completion" goal cards + Supabase
 function syncCourseCompletionGoals() {
   var vals = Object.values(COMPLETION);
   var overallPct = Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length);
@@ -1660,7 +1483,6 @@ function syncCourseCompletionGoals() {
     if (g.cat === "Course completion" && !g.done) {
       g.pct = overallPct;
       changed = true;
-      // Update bar in DOM if goal card is visible
       var cards = document.querySelectorAll(".gc");
       if (cards[i]) {
         var fill = cards[i].querySelector(".gc-fill");
@@ -1668,7 +1490,6 @@ function syncCourseCompletionGoals() {
         if (fill) fill.style.width = overallPct + "%";
         if (pctEl) pctEl.textContent = overallPct + "%";
       }
-      // Persist to Supabase if we have a real id
       if (!LOCAL_MODE && currentUser && g.id && typeof g.id === "string" && g.id.length > 10) {
         sb.from("goals").update({pct: overallPct, updated_at: new Date().toISOString()}).eq("id", g.id)
           .then(function(res) { if (res.error) console.error("[journal] goal pct update failed:", res.error); });
@@ -1696,7 +1517,6 @@ function persistNow() {
     .then(function(res) {
       if (res.error) {
         console.error("[journal] save failed:", res.error);
-        // Common cause in Edge: localStorage blocked -> auth token not stored -> user null on reload
         var msg = res.error && res.error.message ? res.error.message : "unknown error";
         toast("Save failed (" + msg + "). Try Chrome or Firefox if the issue persists.");
       } else {
@@ -1704,6 +1524,15 @@ function persistNow() {
       }
     });
 }
+
+// ── FIX 1: flush any pending save when the tab is closed or navigated away ──
+window.addEventListener('beforeunload', function() {
+  if (_saveTimer) {
+    clearTimeout(_saveTimer);
+    persistNow();
+  }
+});
+
 function showSaveIndicator() {
   var el = document.getElementById("save-indicator");
   if (!el) return;
@@ -1725,7 +1554,6 @@ function savePhoto(slot, dataUrl) {
 
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function nav(id, pushState) {
-  // Close unit viewer if open when navigating
   var uv = document.getElementById('unit-viewer');
   if (uv && uv.classList.contains('uv-open')) {
     uv.classList.remove('uv-open');
@@ -1746,7 +1574,6 @@ function nav(id, pushState) {
   }
   if (id === "goals") {
     renderGoals();
-    // Auto-show suggested goals on first visit if no goals exist
     setTimeout(function(){
       if (!goals.length) {
         try { if (!localStorage.getItem('pc26_sug_shown')) { localStorage.setItem('pc26_sug_shown','1'); toggleSuggestedGoals(); } } catch(e) { toggleSuggestedGoals(); }
@@ -1765,17 +1592,12 @@ window.addEventListener("popstate", function(e) {
 });
 function toggleSb() { toggleMobDrawer(); }
 function closeSb()  { closeMobDrawer(); }
-function toggleMobDrawer() {
-  document.getElementById("mobDrawer").classList.toggle("open");
-}
-function closeMobDrawer() {
-  document.getElementById("mobDrawer").classList.remove("open");
-}
+function toggleMobDrawer() { document.getElementById("mobDrawer").classList.toggle("open"); }
+function closeMobDrawer() { document.getElementById("mobDrawer").classList.remove("open"); }
 function toggleUserDD() {
   var btn = document.getElementById("topbar-av-btn");
   btn.classList.toggle("dd-open");
 }
-// Close user dropdown on outside click
 document.addEventListener("click", function(e) {
   var btn = document.getElementById("topbar-av-btn");
   if (btn && !btn.contains(e.target)) btn.classList.remove("dd-open");
@@ -1788,10 +1610,8 @@ document.querySelectorAll(".mo").forEach(function(m) {
   m.addEventListener("click", function(e) { if (e.target === m) m.classList.remove("open"); });
 });
 
-// ── TOAST ─────────────────────────────────────────────────────────────────────
 // ── FEEDBACK ──────────────────────────────────────────────────────────────────
 function openFeedback() {
-  // Reset form state
   document.getElementById('feedback-text').value = '';
   document.getElementById('feedback-form-wrap').style.display = 'block';
   document.getElementById('feedback-success').style.display = 'none';
@@ -1804,14 +1624,10 @@ function openFeedback() {
 function submitFeedback() {
   var text = document.getElementById('feedback-text').value.trim();
   if (!text) { toast('Please write something first.'); return; }
-
   var userEmail = currentUser ? currentUser.email : 'unknown';
   var userName = (D && D['display_name']) ? D['display_name'] : userEmail;
   var subject = encodeURIComponent('My Focal Point Feedback');
-  var body = encodeURIComponent(
-    'From: ' + userName + ' (' + userEmail + ')\n\n' + text
-  );
-
+  var body = encodeURIComponent('From: ' + userName + ' (' + userEmail + ')\n\n' + text);
   window.open('mailto:focalpointfeedback@gmail.com?subject=' + subject + '&body=' + body);
   document.getElementById('feedback-form-wrap').style.display = 'none';
   document.getElementById('feedback-success').style.display = 'block';
@@ -1882,32 +1698,7 @@ function buildRhythm(cid) {
   }
 }
 
-// ── COMING UP ─────────────────────────────────────────────────────────────────
-function renderCoursePace() {
-  var el = document.getElementById("course-pace-card"); if (!el) return;
-  var curKey = currentUnitKey();
-  var curUnit = null;
-  UNITS.forEach(function(u) { if (String(u.id) === String(curKey)) curUnit = u; });
-  if (!curUnit) return;
-  var uid = String(curKey);
-  var lessons = UNIT_LESSONS[uid] || [];
-  var doneLessons = lessons.filter(function(l,i){ return D["lesson_"+uid+"_"+i]; }).length;
-  var pct = lessons.length ? Math.round((doneLessons/lessons.length)*100) : 0;
-  var unitLabel = typeof curUnit.id === "number" ? "Unit " + curUnit.id : curUnit.id === "gs" ? "Getting Started" : "Final Project";
-  el.innerHTML = '<div class="pace-unit">' + unitLabel + '</div>'
-    + '<div class="pace-title">' + curUnit.title + '</div>'
-    + '<div class="pace-desc">' + curUnit.sub + '</div>'
-    + '<div class="lesson-prog-bar"><div class="lesson-prog-fill" style="width:' + pct + '%"></div></div>'
-    + '<div style="font-size:11px;color:var(--on-card-muted);margin-bottom:14px;">' + doneLessons + ' of ' + lessons.length + ' lessons complete</div>'
-    + '<div class="pace-nav">'
-    + '<button class="btn btn-p btn-sm" onclick="nav(\'journal\')">Open journal \u2192</button>'
-    + '</div>';
-}
-
-// Returns the unit the user is actually in based on their checked lessons
-// Falls back to schedule-based if no activity recorded
 function currentUnitKey() {
-  // Find the furthest unit with any lesson checked
   var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
   var activeKey = null;
   for (var i = 0; i < unitOrder.length; i++) {
@@ -1915,12 +1706,10 @@ function currentUnitKey() {
     var lessons = UNIT_LESSONS[uid] || [];
     var anyDone = lessons.some(function(l, j) { return D["lesson_" + uid + "_" + j]; });
     var allDone = lessons.length > 0 && lessons.every(function(l, j) { return D["lesson_" + uid + "_" + j]; });
-    if (anyDone && !allDone) { activeKey = uid; break; } // In progress
-    if (anyDone && allDone) activeKey = uid; // Completed — keep looking forward
+    if (anyDone && !allDone) { activeKey = uid; break; }
+    if (anyDone && allDone) activeKey = uid;
   }
-  // If no activity at all, always default to Getting Started
   if (!activeKey) { return "gs"; }
-  // If active key is a completed unit, return the next one
   var idx = unitOrder.indexOf(activeKey);
   var lessons = UNIT_LESSONS[activeKey] || [];
   var allDone = lessons.length > 0 && lessons.every(function(l, j) { return D["lesson_" + activeKey + "_" + j]; });
@@ -1939,20 +1728,15 @@ function renderCoursePace() {
   var doneLessons = lessons.filter(function(l,i){ return D["lesson_"+uid+"_"+i]; }).length;
   var pct = lessons.length ? Math.round((doneLessons/lessons.length)*100) : 0;
   var unitLabel = typeof curUnit.id === "number" ? "Unit " + curUnit.id : curUnit.id === "gs" ? "Getting Started" : "Final Project";
-
-  // Find overall stats
   var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
   var totalUnits = unitOrder.length;
   var doneUnits = unitOrder.filter(function(k) {
     var ls = UNIT_LESSONS[k] || [];
     return ls.length > 0 && ls.every(function(l,j){ return D["lesson_"+k+"_"+j]; });
   }).length;
-
-  // Days in current unit
   var startTs = D["unit_start_" + uid];
   var daysInUnit = startTs ? Math.max(1, Math.round((Date.now() - startTs) / 86400000)) : null;
   var daysStr = daysInUnit ? (daysInUnit === 1 ? "1 day in" : daysInUnit + " days in") : "";
-
   var assignPrompt = '';
   GALLERY.forEach(function(g){ if (String(g.id) === uid) assignPrompt = g.prompt; });
   el.innerHTML = '<div class="pace-unit">' + unitLabel + ' \u00b7 ' + doneUnits + ' of ' + totalUnits + ' units done</div>'
@@ -1971,7 +1755,6 @@ function renderCoursePace() {
     + '</div>';
 }
 
-// ── DASHBOARD PROMPT ──────────────────────────────────────────────────────────
 function getDashPrompt() {
   var uid = currentUnitKey();
   var prompts = UNIT_PROMPTS[uid] || UNIT_PROMPTS["gs"];
@@ -1994,7 +1777,6 @@ function savePrompt() {
   if (!v) { toast("Write something first."); return; }
   var p = getDashPrompt();
   D["prompt-" + p.uid + "-" + Date.now()] = v;
-  // Also save to unit reflection key so it appears in the reflections panel
   var existing = (D["uprompt_" + p.uid + "_" + p.idx] || "").trim();
   D["uprompt_" + p.uid + "_" + p.idx] = existing ? existing + "\n\n" + v : v;
   D["prompt_idx_" + p.uid] = (p.idx + 1) % p.total;
@@ -2027,7 +1809,6 @@ function saveModalPrompt() {
 function renderDash() {
   renderCourseGrid();
   renderCoursePace();
-  // Display name from stored profile or email prefix
   var nameEl = document.getElementById("dash-name");
   if (nameEl && currentUser) {
     var displayName = D["display_name"] || (currentUser.email ? currentUser.email.split("@")[0] : "you");
@@ -2047,7 +1828,6 @@ function renderDash() {
   var dgc = document.getElementById("dash-gc"); if(dgc) dgc.innerHTML = active + " <em>active</em>";
   var dgd = document.getElementById("dash-gd"); if(dgd) dgd.textContent = done2 + " achieved";
   var dpill = document.getElementById("dash-pct-pill"); if(dpill) dpill.textContent = totalPct + "% complete";
-  // Unit progress card — COURSE_UNITS with locks + iframe links
   var dp = document.getElementById("dash-prog");
   if (dp) {
     dp.innerHTML = "";
@@ -2073,14 +1853,11 @@ function renderDash() {
       var lessons = UNIT_LESSONS[uid]||[];
       var doneLessons = lessons.filter(function(l,i){return D["lesson_"+uid+"_"+i];}).length;
       var pct = lessons.length ? Math.round((doneLessons/lessons.length)*100) : 0;
-      var isLocked = false;
-      if (!u.url) { isLocked = true; }
+      var isLocked = !u.url;
       var isCurrent = uid===_curK && !isLocked;
       var tile = document.createElement("div");
       tile.className = "ptile" + (pct===100?" done":"") + (isLocked?" ptile-locked":"");
-      if (!isLocked) {
-        tile.addEventListener("click", function(){ openUnitViewer(u); });
-      }
+      if (!isLocked) tile.addEventListener("click", function(){ openUnitViewer(u); });
       var filled = pct>50;
       if (isLocked) {
         tile.innerHTML = '<div class="ptile-label">'
@@ -2089,12 +1866,8 @@ function renderDash() {
           + '<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.2"/></svg>'
           + 'Opens '+u.opens+'</div></div>';
       } else {
-        var pctC = (pct>0&&pct<100)
-          ? '<div style="position:absolute;top:8px;right:10px;font-size:clamp(8px,0.75vw,11px);font-weight:800;color:'+(filled?'rgba(255,255,255,.95)':'var(--mag)')+';z-index:2;text-shadow:'+(filled?'0 1px 3px rgba(0,0,0,.4)':'none')+';">'+pct+'%</div>'
-          : '';
-        var curBadge = isCurrent
-          ? '<div style="position:absolute;top:8px;left:10px;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);z-index:2;background:rgba(255,255,255,.85);padding:2px 6px;border-radius:99px;">Current</div>'
-          : '';
+        var pctC = (pct>0&&pct<100) ? '<div style="position:absolute;top:8px;right:10px;font-size:clamp(8px,0.75vw,11px);font-weight:800;color:'+(filled?'rgba(255,255,255,.95)':'var(--mag)')+';z-index:2;text-shadow:'+(filled?'0 1px 3px rgba(0,0,0,.4)':'none')+';">'+pct+'%</div>' : '';
+        var curBadge = isCurrent ? '<div style="position:absolute;top:8px;left:10px;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);z-index:2;background:rgba(255,255,255,.85);padding:2px 6px;border-radius:99px;">Current</div>' : '';
         tile.innerHTML = '<div class="ptile-fill" data-h="'+pct+'" style="height:0%"></div>'
           + (pct===100?'<div style="position:absolute;top:8px;right:10px;color:var(--yellow);font-size:12px;font-weight:800;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.3);">✓</div>':'')
           + pctC + curBadge
@@ -2104,8 +1877,7 @@ function renderDash() {
     });
     setTimeout(function(){ tc.querySelectorAll(".ptile-fill").forEach(function(f){f.style.height=f.dataset.h+"%";}); },100);
   }
-  // Active goals
-  var gl = document.getElementById("dash-goals-list"); 
+  var gl = document.getElementById("dash-goals-list");
   if (gl) {
     gl.innerHTML = "";
     var ag = goals.filter(function(g){return !g.done;}).slice(0,3);
@@ -2114,29 +1886,20 @@ function renderDash() {
       noGoals.style.cssText = "font-size:12px;color:var(--on-card-muted);margin-bottom:10px;";
       noGoals.textContent = "No goals yet. Pick a few to get started:";
       gl.appendChild(noGoals);
-      // Show 3 suggested goals inline with quick-add buttons
       var sugList = SUGGESTED_GOALS.slice(0, 3);
       sugList.forEach(function(sg, i) {
         var row = document.createElement("div");
         row.style.cssText = "display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;background:var(--input);margin-bottom:6px;gap:8px;";
-        var info = document.createElement("div");
-        info.style.flex = "1";
-        info.innerHTML = '<div style="font-size:12px;font-weight:600;color:var(--on-card);">' + sg.title + '</div>'
-          + '<div style="font-size:10px;color:var(--on-card-muted);">' + sg.cat + '</div>';
+        var info = document.createElement("div"); info.style.flex = "1";
+        info.innerHTML = '<div style="font-size:12px;font-weight:600;color:var(--on-card);">' + sg.title + '</div><div style="font-size:10px;color:var(--on-card-muted);">' + sg.cat + '</div>';
         var addBtn = document.createElement("button");
         addBtn.style.cssText = "background:var(--mag);color:#fff;border:none;border-radius:99px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;white-space:nowrap;flex-shrink:0;";
         addBtn.textContent = "+ Add";
-        (function(idx){ addBtn.onclick = function(){
-          addSuggestedGoal(idx);
-          renderDash();
-        }; })(i);
-        row.appendChild(info);
-        row.appendChild(addBtn);
-        gl.appendChild(row);
+        (function(idx){ addBtn.onclick = function(){ addSuggestedGoal(idx); renderDash(); }; })(i);
+        row.appendChild(info); row.appendChild(addBtn); gl.appendChild(row);
       });
       var moreBtn = document.createElement("button");
-      moreBtn.className = "btn btn-g btn-sm";
-      moreBtn.style.cssText = "margin-top:6px;width:100%;";
+      moreBtn.className = "btn btn-g btn-sm"; moreBtn.style.cssText = "margin-top:6px;width:100%;";
       moreBtn.textContent = "More suggested goals →";
       moreBtn.onclick = function(){ nav("goals"); setTimeout(toggleSuggestedGoals, 300); };
       gl.appendChild(moreBtn);
@@ -2144,20 +1907,12 @@ function renderDash() {
       ag.forEach(function(g) {
         var d = document.createElement("div");
         d.style.cssText = "display:flex;align-items:flex-start;gap:10px;padding:10px;border-radius:9px;background:var(--input);margin-bottom:8px;cursor:pointer;";
-        var dot = document.createElement("div");
-        dot.style.cssText = "width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:4px;";
-        var info = document.createElement("div");
-        info.style.flex = "1";
-        var tt = document.createElement("div");
-        tt.style.cssText = "font-size:12.5px;font-weight:500;";
-        tt.textContent = g.title;
-        var ct = document.createElement("div");
-        ct.style.cssText = "font-size:11px;color:var(--on-card-muted);margin-top:1px;";
-        ct.textContent = g.cat;
+        var dot = document.createElement("div"); dot.style.cssText = "width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:4px;";
+        var info = document.createElement("div"); info.style.flex = "1";
+        var tt = document.createElement("div"); tt.style.cssText = "font-size:12.5px;font-weight:500;"; tt.textContent = g.title;
+        var ct = document.createElement("div"); ct.style.cssText = "font-size:11px;color:var(--on-card-muted);margin-top:1px;"; ct.textContent = g.cat;
         info.appendChild(tt); info.appendChild(ct);
-        var pv = document.createElement("div");
-        pv.style.cssText = "font-size:11px;font-weight:600;color:#1f6b76;";
-        pv.textContent = g.pct ? g.pct + "%" : "—";
+        var pv = document.createElement("div"); pv.style.cssText = "font-size:11px;font-weight:600;color:#1f6b76;"; pv.textContent = g.pct ? g.pct + "%" : "—";
         d.appendChild(dot); d.appendChild(info); d.appendChild(pv);
         d.onclick = function() { nav("goals"); };
         gl.appendChild(d);
@@ -2165,7 +1920,6 @@ function renderDash() {
     }
   }
   var unitLineEl = document.getElementById("dash-unit-line");
-    var unitLineEl = document.getElementById("dash-unit-line");
   if (unitLineEl) {
     var _curKey = String(currentUnitKey());
     var _curUnit = null;
@@ -2177,17 +1931,9 @@ function renderDash() {
       unitLineEl.textContent = "Currently on "+_ulabel+" · "+_done+" of "+_ls.length+" lessons complete";
     }
   }
-  var assignDone = GALLERY.filter(function(g) { return D["photo-" + g.id]; }).length;
-  var active = goals.filter(function(g) { return !g.done; }).length;
-  var done   = goals.filter(function(g) { return  g.done; }).length;
-  var vals = Object.values(COMPLETION);
-  var totalPct = Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length);
-  var completedSections = vals.filter(function(v){return v===100;}).length;
-
 }
 
 function populateNoteUnitSel() {
-  // Populate the hidden FAB unit selector
   var sel = document.getElementById("note-unit"); if (!sel) return;
   if (sel.options.length > 1) return;
   sel.innerHTML = '<option value="general">General</option>';
@@ -2196,7 +1942,6 @@ function populateNoteUnitSel() {
     var opt = document.createElement("option"); opt.value = String(u.id); opt.textContent = label;
     sel.appendChild(opt);
   });
-  // Populate the notes page filter too
   var filterSel = document.getElementById("notes-filter-unit"); if (!filterSel) return;
   if (filterSel.options.length > 1) return;
   UNITS.forEach(function(u) {
@@ -2217,21 +1962,12 @@ function addNote() {
   sb.from("notes").insert({user_id:currentUser.id, text:text, uid:uid, unit_label:unitLabel, tag:tag})
     .select().single()
     .then(function(res) {
-      if (res.error) {
-        console.error("[journal] note save failed:", res.error);
-        toast("Save failed. Check your connection.");
-        return;
-      }
-      if (res.data) {
-        notes.unshift({id:res.data.id, ts:new Date(res.data.created_at).getTime(), text:text, uid:uid, unitLabel:unitLabel, tag:tag});
-      }
+      if (res.error) { console.error("[journal] note save failed:", res.error); toast("Save failed. Check your connection."); return; }
+      if (res.data) notes.unshift({id:res.data.id, ts:new Date(res.data.created_at).getTime(), text:text, uid:uid, unitLabel:unitLabel, tag:tag});
       document.getElementById("note-text").value = "";
-      renderNotes();
-      buildRhythm("rhythm-dash");
-      buildRhythm("rhythm-prog");
+      renderNotes(); buildRhythm("rhythm-dash"); buildRhythm("rhythm-prog");
       var nc = document.getElementById("dash-nc"); if (nc) nc.textContent = notes.length;
-      showSaveIndicator();
-      toast("Note saved \u2713");
+      showSaveIndicator(); toast("Note saved \u2713");
     });
 }
 
@@ -2239,13 +1975,11 @@ function deleteNote(id) {
   if (currentUser) sb.from("notes").delete().eq("id", id)
     .then(function(res) { if (res.error) console.error("[journal] deleteNote failed:", res.error); });
   notes = notes.filter(function(n){return n.id !== id;});
-  renderNotes();
-  buildRhythm("rhythm-dash"); buildRhythm("rhythm-prog");
+  renderNotes(); buildRhythm("rhythm-dash"); buildRhythm("rhythm-prog");
 }
 
 function renderNotes() {
   var el = document.getElementById("notes-list"); if (!el) return;
-  // Read filters
   var filterUnit = (document.getElementById("notes-filter-unit") || {}).value || "all";
   var filterTag  = (document.getElementById("notes-filter-tag")  || {}).value || "all";
   var filtered = notes.filter(function(n) {
@@ -2257,7 +1991,6 @@ function renderNotes() {
     el.innerHTML = '<div class="notes-empty"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="margin-bottom:12px;opacity:.35;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><div>' + (notes.length ? 'No notes match this filter.' : 'No notes yet.<br>Use + Add note to capture a thought.') + '</div></div>';
     return;
   }
-  // Group by month
   var months = {}; var monthOrder = [];
   filtered.forEach(function(n) {
     var d = new Date(n.ts || n.id);
@@ -2292,13 +2025,11 @@ function renderNotes() {
 var _activeJournalUid = null;
 
 function renderJournal(keepActiveUid) {
-  var list = document.getElementById("jsb-list");
-  if (!list) return;
+  var list = document.getElementById("jsb-list"); if (!list) return;
   list.innerHTML = "";
   UNITS.forEach(function(u) {
     var uid = String(u.id);
     var label = u.id === "gs" ? "Getting Started" : u.id === "fp" ? "Final Project" : "Unit " + u.id + ": " + u.title;
-    // Journal completion: count filled reflection fields + prompts
     var u_obj = null; UNITS.forEach(function(x){ if(String(x.id)===uid) u_obj=x; });
     var totalFields = 0, filledFields = 0;
     if (u_obj) {
@@ -2306,10 +2037,8 @@ function renderJournal(keepActiveUid) {
     }
     var prompts = UNIT_PROMPTS[uid] || [];
     prompts.forEach(function(q,i){ totalFields++; if((D['uprompt_'+uid+'_'+i]||'').trim()) filledFields++; });
-    // Also count assignment reflection
     totalFields++; if((D['achose-'+uid]||'').trim()) filledFields++;
     var pct = totalFields > 0 ? Math.round((filledFields/totalFields)*100) : 0;
-    // Check if this unit is locked (no URL in COURSE_UNITS)
     var cu = null; COURSE_UNITS.forEach(function(x){ if(String(x.id)===uid) cu=x; });
     var isUnitLocked = cu && !cu.url;
     var opensDate = cu && cu.opens ? cu.opens : '';
@@ -2322,16 +2051,11 @@ function renderJournal(keepActiveUid) {
     if (!isUnitLocked) row.onclick = (function(id){ return function(){ openUnitPanel(id); }; })(uid);
     list.appendChild(row);
   });
-  // Re-open active unit if one was open
-  if (_activeJournalUid && keepActiveUid !== false) {
-    openUnitPanel(_activeJournalUid, true);
-  }
+  if (_activeJournalUid && keepActiveUid !== false) openUnitPanel(_activeJournalUid, true);
 }
 
-
 function refreshSidebarUnit(uid) {
-  var row = document.getElementById("jsb-" + uid);
-  if (!row) return;
+  var row = document.getElementById("jsb-" + uid); if (!row) return;
   var u_obj = null; UNITS.forEach(function(x){ if(String(x.id)===uid) u_obj=x; });
   var totalFields = 0, filledFields = 0;
   if (u_obj) {
@@ -2346,13 +2070,12 @@ function refreshSidebarUnit(uid) {
   if (pctEl) pctEl.textContent = pct > 0 ? pct + "% reflected" : "Not started";
   if (barEl) barEl.style.width = pct + "%";
 }
+
 function openUnitPanel(uid, silent) {
   _activeJournalUid = uid;
-  // Update sidebar active state
   document.querySelectorAll(".jsb-unit").forEach(function(el){ el.classList.remove("active"); });
   var row = document.getElementById("jsb-" + uid);
   if (row) { row.classList.add("active"); if (!silent) row.scrollIntoView({block:"nearest"}); }
-  // Build content immediately — don't block on photos
   var u = null;
   UNITS.forEach(function(x){ if (String(x.id) === uid) u = x; });
   if (!u) return;
@@ -2369,32 +2092,23 @@ function openUnitPanel(uid, silent) {
       + '<div style="font-size:12px;color:var(--on-grad-muted);">' + u.sub + '</div>';
   }
   panel.innerHTML = panelContent;
-  // Scroll page to top
   window.scrollTo(0, 0);
-  // Load photos in background and refresh photo strips if needed
   if (!_photosLoaded) {
     loadPhotos(function(){
       var photoEl = document.getElementById("aphotos-" + uid);
       if (photoEl) refreshAssignPhotos(uid);
     });
   }
-  // Build panel nav footer
   var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
   var curIdx = unitOrder.indexOf(uid);
-  var prevUid = curIdx > 0 ? unitOrder[curIdx - 1] : null;
   var nextUid = curIdx >= 0 && curIdx < unitOrder.length - 1 ? unitOrder[curIdx + 1] : null;
   var nextUnitObj = null;
   if (nextUid) UNITS.forEach(function(x){ if (String(x.id) === nextUid) nextUnitObj = x; });
-  var nextLabel = nextUnitObj ? (nextUid === "fp" ? "Final Project" : "Unit " + nextUnitObj.id + ": " + nextUnitObj.title) : null;
-  // Add panel footer nav
   var footerDiv = document.createElement("div");
   footerDiv.className = "um-footer";
   footerDiv.style.marginTop = "40px";
-  // Find the COURSE_UNITS entry for current uid to open the lesson
   var curCU = null; COURSE_UNITS.forEach(function(x){ if(String(x.id)===uid) curCU=x; });
-  footerDiv.innerHTML = '<div></div>'
-    + '<div class="um-footer-center">All changes saved automatically</div>'
-    + '<div></div>';
+  footerDiv.innerHTML = '<div></div><div class="um-footer-center">All changes saved automatically</div><div></div>';
   if (curCU && curCU.url) {
     var openBtn = document.createElement('button');
     openBtn.className = 'um-footer-btn primary';
@@ -2403,7 +2117,6 @@ function openUnitPanel(uid, silent) {
     footerDiv.lastChild.replaceWith(openBtn);
   }
   panel.appendChild(footerDiv);
-  // Animate chips
   setTimeout(function(){
     panel.querySelectorAll(".lchip-fill").forEach(function(f){ f.style.width = f.dataset.w + "%"; });
   }, 80);
@@ -2411,8 +2124,6 @@ function openUnitPanel(uid, silent) {
 
 function buildUnitContent(uid, u) {
   var content = "";
-
-  // Reflection prompts — tabbed
   var prompts = UNIT_PROMPTS[uid] || [];
   if (prompts.length) {
     content += '<div class="um-section">'
@@ -2429,23 +2140,23 @@ function buildUnitContent(uid, u) {
       var savedVal = (D["uprompt_" + uid + "_" + pidx] || "").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       content += '<div class="prompt-pane' + (pidx === 0 ? ' active' : '') + '" id="ppane-' + uid + '-' + pidx + '">'
         + '<div style="font-size:14px;font-weight:500;margin-bottom:12px;color:var(--on-card);">' + q + '</div>'
-        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)">' + savedVal + '</textarea>'
+        // ── FIX 3a: onblur flushes pending save for prompt textareas ──
+        + '<textarea class="up-inp" placeholder="Write freely..." rows="5" data-uid="' + uid + '" data-pidx="' + pidx + '" oninput="autoSavePromptIdx(this)" onblur="clearTimeout(_saveTimer);persistNow();">' + savedVal + '</textarea>'
         + '</div>';
     });
     content += '</div>';
   }
-  // Reflection fields
   u.sections.forEach(function(s) {
     content += '<div class="um-section"><div class="um-section-title">' + s.title + '<span class="um-autosave-hint">saves automatically</span></div>';
     content += '<div class="unit-reflect-grid">';
     s.fields.forEach(function(f) {
       var val = (D[f.id] || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
       content += '<div><label class="f-label">' + f.label + '</label>'
-        + '<textarea class="rf-area" id="' + f.id + '" placeholder="' + f.ph + '" rows="' + f.rows + '" oninput="autoSave(this.dataset.fid,this.value)" data-fid="' + f.id + '">' + val + '</textarea></div>';
+        // ── FIX 3b: onblur flushes pending save for reflection textareas ──
+        + '<textarea class="rf-area" id="' + f.id + '" placeholder="' + f.ph + '" rows="' + f.rows + '" oninput="autoSave(this.dataset.fid,this.value)" onblur="clearTimeout(_saveTimer);persistNow();" data-fid="' + f.id + '">' + val + '</textarea></div>';
     });
     content += '</div></div>';
   });
-  // Assignment — multi-photo
   var photos = D["photos-" + uid] || [];
   if (!photos.length && D["photo-" + uid]) { photos = [D["photo-" + uid]]; D["photos-" + uid] = photos; }
   var achose = (D["achose-" + uid] || "").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -2468,25 +2179,23 @@ function buildUnitContent(uid, u) {
     + (assignPromptText ? '<div style="font-size:13px;color:var(--on-card);line-height:1.6;margin-bottom:16px;padding:12px 14px;background:rgba(159,33,126,.06);border-radius:10px;">' + assignPromptText + '</div>' : '')
     + '<div id="aphotos-' + uid + '" style="margin-bottom:14px;line-height:0;">' + thumbsHTML + '</div>'
     + '<div class="field-block"><label class="f-label">My reflection on this assignment.</label>'
-    + '<textarea class="rf-area" id="achose-' + uid + '" data-key="achose-' + uid + '" placeholder="What choices did you make? What are you proud of? What would you do differently?" rows="5" oninput="autoSave(this.dataset.key,this.value)">' + achose + '</textarea></div>'
+    + '<textarea class="rf-area" id="achose-' + uid + '" data-key="achose-' + uid + '" placeholder="What choices did you make? What are you proud of? What would you do differently?" rows="5" oninput="autoSave(this.dataset.key,this.value)" onblur="clearTimeout(_saveTimer);persistNow();">' + achose + '</textarea></div>'
     + '</div>';
   return content;
 }
+
 function openUnitModal(uid) {
   if (!_photosLoaded) { loadPhotos(function(){ openUnitModal(uid); }); return; }
   var u = null;
   UNITS.forEach(function(x){ if (String(x.id) === uid) u = x; });
   if (!u) return;
-
   var headLabel = u.id === "gs" ? u.title : u.id === "fp" ? "Final Project: " + u.title : "Unit " + u.id + ": " + u.title;
   document.getElementById("um-title").textContent = headLabel;
   document.getElementById("um-sub").textContent = u.sub;
-
   var content = buildUnitContent(uid, u);
   document.getElementById("um-content").innerHTML = content;
   document.getElementById("unit-modal").classList.add("open");
   document.getElementById("unit-modal").scrollTop = 0;
-  // Build footer
   var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
   var curIdx = unitOrder.indexOf(uid);
   var nextUid = curIdx >= 0 && curIdx < unitOrder.length - 1 ? unitOrder[curIdx + 1] : null;
@@ -2499,7 +2208,6 @@ function openUnitModal(uid) {
     + (nextLabel
       ? '<button class="um-footer-btn" onclick="openUnitModal(\'' + nextUid + '\');">Next: ' + nextLabel + ' →</button>'
       : '<button class="um-footer-btn" onclick="closeUnitModal();">Done ✓</button>');
-  // Mirror next button in topbar
   var topNext = document.getElementById("um-topbar-next");
   if (topNext) topNext.innerHTML = nextLabel
     ? '<button class="um-back" onclick="openUnitModal(\'' + nextUid + '\');">Next: ' + nextLabel + ' →</button>'
@@ -2508,7 +2216,6 @@ function openUnitModal(uid) {
 
 function closeUnitModal() {
   document.getElementById("unit-modal").classList.remove("open");
-  // Refresh grid cards to show updated progress
   renderJournal();
 }
 
@@ -2519,10 +2226,8 @@ function handleChipClick(el) {
   refreshUmChips(uid);
 }
 function refreshUmChips(uid) {
-  // Re-render just the chips inside the open modal
   var lessons = UNIT_LESSONS[uid] || [];
-  var container = document.getElementById("umchips-" + uid);
-  if (!container) return;
+  var container = document.getElementById("umchips-" + uid); if (!container) return;
   container.innerHTML = "";
   lessons.forEach(function(l, i) {
     var isDone = !!D["lesson_"+uid+"_"+i];
@@ -2532,22 +2237,17 @@ function refreshUmChips(uid) {
     chip.onclick = (function(idx){ return function(){ toggleLesson(uid, idx); refreshUmChips(uid); }; })(i);
     container.appendChild(chip);
   });
-  // Update pct in section title
   var doneLessons = lessons.filter(function(l,i){ return D["lesson_"+uid+"_"+i]; }).length;
   var pct = Math.round((doneLessons/lessons.length)*100);
   var titleEl = container.closest(".um-section").querySelector(".um-section-title");
   if (titleEl) titleEl.innerHTML = 'Lessons &nbsp;<span style="font-weight:700;color:var(--mag);">' + pct + '% complete</span>';
 }
 
-// Also handle nav click to journal: open most recent unit
-
 function mkF(f) {
   var val = (D[f.id] || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   return '<div><label class="f-label">' + f.label + '</label>'
     + '<textarea class="rf-area" id="' + f.id + '" placeholder="' + f.ph + '" rows="' + f.rows + '" oninput="autoSave(\'' + f.id + '\',this.value)">' + val + '</textarea></div>';
 }
-
-// toggleUnit replaced by openUnitModal
 
 function saveUnitPrompt(uid) {
   var prompts = UNIT_PROMPTS[uid] || [""];
@@ -2610,12 +2310,10 @@ var _glbIdx = 0;
 function openGalleryLightbox(uid, unitLabel, u) {
   var photos = D["photos-" + uid] || (D["photo-" + uid] ? [D["photo-" + uid]] : []);
   var achose = D["achose-" + uid] || "";
-  _glbPhotos = photos;
-  _glbIdx = 0;
+  _glbPhotos = photos; _glbIdx = 0;
   document.getElementById("glb-unit").textContent = unitLabel;
   document.getElementById("glb-title").textContent = u.title;
   document.getElementById("glb-prompt").textContent = u.prompt;
-  // Reflection
   var refl = document.getElementById("glb-reflections");
   if (achose) {
     refl.innerHTML = "<div style='font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:6px;'>My reflection</div>"
@@ -2635,24 +2333,15 @@ function glbShow(idx) {
   var indicator = document.getElementById("glb-indicator");
   _glbIdx = idx;
   if (!photos.length) {
-    imgEl.style.display = "none";
-    noPhotoEl.style.display = "block";
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-    indicator.style.display = "none";
-    return;
+    imgEl.style.display = "none"; noPhotoEl.style.display = "block";
+    prevBtn.style.display = "none"; nextBtn.style.display = "none";
+    indicator.style.display = "none"; return;
   }
-  imgEl.src = photos[idx];
-  imgEl.style.display = "block";
-  noPhotoEl.style.display = "none";
-  // Arrows
+  imgEl.src = photos[idx]; imgEl.style.display = "block"; noPhotoEl.style.display = "none";
   prevBtn.style.display = photos.length > 1 ? "flex" : "none";
   nextBtn.style.display = photos.length > 1 ? "flex" : "none";
-  prevBtn.style.alignItems = "center";
-  prevBtn.style.justifyContent = "center";
-  nextBtn.style.alignItems = "center";
-  nextBtn.style.justifyContent = "center";
-  // Indicator dots + counter
+  prevBtn.style.alignItems = "center"; prevBtn.style.justifyContent = "center";
+  nextBtn.style.alignItems = "center"; nextBtn.style.justifyContent = "center";
   if (photos.length > 1) {
     indicator.style.display = "flex";
     var dotsHTML = "";
@@ -2661,16 +2350,14 @@ function glbShow(idx) {
     });
     dotsHTML += "<div style='position:absolute;right:12px;bottom:0;font-size:10px;font-weight:700;color:rgba(255,255,255,.7);'>" + (idx+1) + " / " + photos.length + "</div>";
     indicator.innerHTML = dotsHTML;
-    indicator.style.position = "absolute";
-    indicator.style.bottom = "10px";
+    indicator.style.position = "absolute"; indicator.style.bottom = "10px";
   } else {
     indicator.style.display = "none";
   }
 }
 function glbNav(dir) {
   if (!_glbPhotos.length) return;
-  var n = (_glbIdx + dir + _glbPhotos.length) % _glbPhotos.length;
-  glbShow(n);
+  glbShow((_glbIdx + dir + _glbPhotos.length) % _glbPhotos.length);
 }
 
 var _photosLoaded = false;
@@ -2684,7 +2371,7 @@ function loadPhotos(cb) {
       if (cb) cb();
     });
 }
-// ── MULTI PHOTO UPLOAD ────────────────────────────────────────────────────────
+
 function handleAPhotoMulti(e, uid) {
   var files = Array.from(e.target.files); if (!files.length) return;
   var existing = D["photos-" + uid] || [];
@@ -2698,19 +2385,14 @@ function handleAPhotoMulti(e, uid) {
         var arr = D["photos-" + uid] || [];
         arr.push(compressed);
         D["photos-" + uid] = arr;
-        D["photo-" + uid] = arr[0]; // keep gallery compat
+        D["photo-" + uid] = arr[0];
         persist();
         done++;
         if (done === toAdd.length) {
           refreshAssignPhotos(uid);
-          // Auto-mark assignment complete on first photo upload
           var lessons = UNIT_LESSONS[uid] || [];
-          var assignKey = 'lesson_' + uid + '_' + lessons.length; // index after last lesson
-          if (!D[assignKey]) {
-            D[assignKey] = true;
-            saveUnitProgress(uid);
-            renderCourseGrid();
-          }
+          var assignKey = 'lesson_' + uid + '_' + lessons.length;
+          if (!D[assignKey]) { D[assignKey] = true; saveUnitProgress(uid); renderCourseGrid(); }
           toast("Photo" + (done > 1 ? "s" : "") + " added \u2713");
         }
       });
@@ -2733,1160 +2415,4 @@ function refreshAssignPhotos(uid) {
     var w = document.createElement("div");
     w.style.cssText = "position:relative;display:inline-block;margin:0 6px 6px 0;vertical-align:top;";
     w.innerHTML = '<img src="' + src + '" style="width:80px;height:80px;object-fit:cover;border-radius:8px;display:block;">'
-      + '<button onclick="removeUnitPhoto(\'' + uid + '\',' + idx + ')" style="position:absolute;top:-6px;right:-6px;background:#1a1018;color:#fff;border:none;border-radius:99px;width:18px;height:18px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>';
-    c.appendChild(w);
-  });
-  if (photos.length < 8) {
-    var lbl = document.createElement("label");
-    lbl.style.cssText = "width:80px;height:80px;border-radius:8px;border:2px dashed rgba(159,33,126,.3);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;color:rgba(159,33,126,.5);font-size:10px;font-weight:600;vertical-align:top;transition:border-color .15s,background .15s;";
-    lbl.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Add'
-      + '<input type="file" accept="image/*" multiple style="display:none" onchange="handleAPhotoMulti(event,\'' + uid + '\')">';
-    lbl.addEventListener("dragover", function(e){ e.preventDefault(); lbl.classList.add("drag-over"); });
-    lbl.addEventListener("dragleave", function(){ lbl.classList.remove("drag-over"); });
-    lbl.addEventListener("drop", function(e){
-      e.preventDefault(); lbl.classList.remove("drag-over");
-      var files = Array.from(e.dataTransfer.files).filter(function(f){ return f.type.startsWith("image/"); });
-      if (files.length) { handleAPhotoMulti({target:{files:files}}, uid); }
-    });
-    c.appendChild(lbl);
-  }
-}
-// ── GOALS ─────────────────────────────────────────────────────────────────────
-function renderGoals() {
-  var ids = ["g-learn","g-confident","g-progress","g-changed","g-next"];
-  ids.forEach(function(id) { var el=document.getElementById(id); if(el&&D[id]) el.value=D[id]; });
-  var grid = document.getElementById("goal-grid"); grid.innerHTML = "";
-  if (!goals.length) {
-    var empty = document.createElement("div");
-    empty.style.cssText = "grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--on-card-muted);font-size:13px;";
-    empty.innerHTML = '<div style="font-size:15px;font-weight:600;color:var(--on-card);margin-bottom:8px;">No goals yet</div>'
-      + 'Use <b>Suggested goals</b> above to get started, or add your own.';
-    grid.appendChild(empty);
-    return;
-  }
-  goals.forEach(function(g, i) {
-    var cc = g.cat==="Technical skill" ? "var(--teal)" : g.cat==="Personal project" ? "var(--mag)" : g.cat==="Community" ? "#8a7200" : "var(--on-card-muted)";
-    var div = document.createElement("div"); div.className = "gc" + (g.done ? " done" : "");
-    var footRight = g.done
-      ? '<span style="font-size:12px;color:#1f6b76;font-weight:500;">\u2713 Done</span>'
-      : '<button class="btn btn-g btn-sm" onclick="doneGoal(' + i + ')">Mark done</button>';
-    div.innerHTML = '<div class="gc-cat" style="color:' + cc + ';">' + g.cat + '</div>'
-      + '<div class="gc-title">' + g.title + '</div>'
-      + '<div class="gc-why">"' + g.why + '"</div>'
-      + '<div class="gc-bar"><div class="gc-fill" data-w="' + g.pct + '" style="width:0%"></div></div>'
-      + '<div class="gc-foot"><span class="gc-pct" style="color:' + (g.done?"var(--teal)":"var(--on-card-muted)") + ';">' + g.pct + '%</span>' + footRight + '</div>';
-    grid.appendChild(div);
-  });
-  setTimeout(function(){ grid.querySelectorAll(".gc-fill").forEach(function(f){f.style.width=f.dataset.w+"%";}); }, 100);
-}
-
-// Tracks which suggested goals are selected (indices)
-var _sugSelected = [];
-
-function renderSuggestedGoals(grid) {
-  _sugSelected = [];
-  var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
-  var curKey = currentUnitKey();
-  var curIdx = unitOrder.indexOf(String(curKey));
-  var curUnit = null;
-  UNITS.forEach(function(u) { if (String(u.id) === String(curKey)) curUnit = u; });
-  var unitLabel = curUnit ? (typeof curUnit.id === "number" ? "Unit " + curUnit.id + ": " + curUnit.title : curUnit.title) : "Getting Started";
-  var phaseLabel = curIdx <= 2 ? "just getting started" : curIdx <= 4 ? "building your fundamentals" : "in the later units";
-  // Unit context shown in modal header — just add a small label
-  var wrap = document.createElement("div");
-  wrap.style.cssText = "margin-bottom:12px;";
-  wrap.innerHTML = '<div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,252,246,.45);">Suggested for ' + unitLabel + '</div>';
-  grid.appendChild(wrap);
-
-  SUGGESTED_GOALS.forEach(function(sg, i) {
-    var div = document.createElement("div");
-    div.className = "sug-goal";
-    div.id = "sug-" + i;
-    div.innerHTML = '<div class="sug-goal-info"><div class="sug-goal-text">' + sg.title + '</div><div class="sug-goal-cat">' + sg.cat + '</div></div>'
-      + '<div class="sug-add-icon" id="sug-icon-' + i + '">+</div>';
-    div.onclick = function() { toggleSuggestedGoal(i); };
-    grid.appendChild(div);
-  });
-
-  // Save bar — hidden until at least one is selected
-  var bar = document.createElement("div");
-  bar.id = "sug-save-bar";
-  bar.style.cssText = "grid-column:1/-1;display:none;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--teal-l);border:1.5px solid var(--teal);border-radius:12px;margin-top:6px;";
-  bar.innerHTML = '<span style="font-size:12.5px;font-weight:500;" id="sug-save-label">0 of 3 selected</span>'
-    + '<div style="display:flex;gap:8px;">'
-    + '<button class="btn btn-g btn-sm" onclick="clearSuggestedGoals()">Clear</button>'
-    + '<button class="btn btn-p btn-sm" onclick="saveSuggestedGoals()">Add selected goals \u2192</button>'
-    + '</div>';
-  grid.appendChild(bar);
-}
-
-function toggleSuggestedGoal(i) {
-  var idx = _sugSelected.indexOf(i);
-  if (idx > -1) {
-    // Deselect
-    _sugSelected.splice(idx, 1);
-    var div = document.getElementById("sug-" + i);
-    var icon = document.getElementById("sug-icon-" + i);
-    if (div) div.classList.remove("selected");
-    if (icon) icon.textContent = "+";
-  } else {
-    if (_sugSelected.length >= 3) {
-      toast("Maximum 3 goals. Deselect one first.");
-      return;
-    }
-    _sugSelected.push(i);
-    var div = document.getElementById("sug-" + i);
-    var icon = document.getElementById("sug-icon-" + i);
-    if (div) div.classList.add("selected");
-    if (icon) icon.textContent = "\u2713";
-  }
-  // Update save bar
-  var bar = document.getElementById("sug-save-bar");
-  var label = document.getElementById("sug-save-label");
-  if (bar) bar.style.display = _sugSelected.length > 0 ? "flex" : "none";
-  if (label) label.textContent = _sugSelected.length + " of 3 selected";
-}
-
-function clearSuggestedGoals() {
-  _sugSelected.slice().forEach(function(i) { toggleSuggestedGoal(i); });
-}
-
-function saveSuggestedGoals() {
-  if (!_sugSelected.length) return;
-  var toAdd = _sugSelected.map(function(i) { return SUGGESTED_GOALS[i]; });
-  if (LOCAL_MODE) {
-    toAdd.forEach(function(sg) {
-      goals.unshift({id:Date.now() + Math.random(), title:sg.title, cat:sg.cat, why:sg.why, pct:0, done:false});
-    });
-    persist(); renderGoals(); renderDash();
-    closeSugModal();
-    toast(toAdd.length + " goal" + (toAdd.length > 1 ? "s" : "") + " added \u2713");
-    return;
-  }
-  if (!currentUser) return;
-  var rows = toAdd.map(function(sg) {
-    return {user_id:currentUser.id, title:sg.title, cat:sg.cat, why:sg.why, pct:0, done:false};
-  });
-  sb.from("goals").insert(rows).select()
-    .then(function(res) {
-      if (res.error) {
-        console.error("[journal] suggested goals save failed:", res.error);
-        toast("Save failed. Check your connection.");
-        return;
-      }
-      if (res.data) res.data.forEach(function(g) { goals.unshift(g); });
-      renderGoals(); renderDash();
-      closeSugModal();
-      toast(toAdd.length + " goal" + (toAdd.length > 1 ? "s" : "") + " added \u2713");
-    });
-}
-
-function addSuggestedGoal(i) {
-  // Legacy single-add — kept for safety, routes through new flow
-  _sugSelected = [i];
-  saveSuggestedGoals();
-}
-function doneGoal(i) {
-  var g = goals[i]; g.done = true; g.pct = 100;
-  if (currentUser && g.id) {
-    sb.from("goals").update({done:true, pct:100, updated_at:new Date().toISOString()}).eq("id", g.id)
-      .then(function(res) { if (res.error) console.error("[journal] doneGoal update failed:", res.error); });
-  }
-  renderGoals(); renderDash(); toast("Goal complete \uD83C\uDF89");
-}
-function addGoal() {
-  var t = document.getElementById("g-title").value.trim();
-  if (!t) { toast("Give your goal a title."); return; }
-  var cat = document.getElementById("g-cat").value;
-  var why = document.getElementById("g-why").value || "My goal";
-  if (!currentUser) return;
-  sb.from("goals").insert({user_id:currentUser.id, title:t, cat:cat, why:why, pct:0, done:false})
-    .select().single()
-    .then(function(res) {
-      if (res.error) {
-        console.error("[journal] addGoal failed:", res.error);
-        toast("Save failed. Check your connection.");
-        return;
-      }
-      if (res.data) goals.unshift(res.data);
-      renderGoals(); renderDash();
-      closeModal("modal-goal"); toast("Goal added \u2713");
-      document.getElementById("g-title").value = "";
-      document.getElementById("g-why").value   = "";
-    });
-}
-
-// ── GALLERY ───────────────────────────────────────────────────────────────────
-function renderGallery() {
-  if (!_photosLoaded) { loadPhotos(function(){ renderGallery(); }); return; }
-  var grid = document.getElementById("gal-grid"); grid.innerHTML = "";
-  var emptySVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="10" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M2 17l5-4 3.5 3.5 4-5L22 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var lockSVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.3"/></svg>';
-  GALLERY.forEach(function(u) {
-    var uid = String(u.id);
-    // Check if this unit is locked (no URL in COURSE_UNITS)
-    var cu = null; COURSE_UNITS.forEach(function(x){ if(String(x.id)===uid) cu=x; });
-    var isLocked = cu && !cu.url;
-    var opensDate = cu && cu.opens ? cu.opens : null;
-    if (isLocked) {
-      var div = document.createElement("div");
-      div.className = "gal-item";
-      div.style.cssText = "opacity:.5;cursor:default;pointer-events:none;";
-      var unitLabel = typeof u.id === "number" ? "Unit " + u.id : u.id === "gs" ? "Getting Started" : "Final Project";
-      div.innerHTML = '<div class="gal-thumb" style="background:rgba(159,33,126,.05);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--on-card-muted);">'
-        + lockSVG
-        + '<div style="font-size:11px;font-weight:600;">Opens ' + opensDate + '</div>'
-        + '</div>'
-        + '<div class="gal-info">'
-        + '<div class="gal-unit">' + unitLabel + '</div>'
-        + '<div class="gal-title">' + u.title + '</div>'
-        + '<div class="gal-prompt" style="font-size:10.5px;color:var(--on-card-muted);">Available ' + opensDate + '</div>'
-        + '</div>';
-      grid.appendChild(div);
-      return;
-    }
-    var photos = D["photos-" + uid] || (D["photo-" + uid] ? [D["photo-" + uid]] : []);
-    var unitLabel = typeof u.id === "number" ? "Unit " + u.id : u.id === "gs" ? "Getting Started" : "Final Project";
-    var div = document.createElement("div"); div.className = "gal-item";
-    // Build split thumbnail
-    var thumbInner = "";
-    if (!photos.length) {
-      thumbInner = '<div class="gal-empty">' + emptySVG + '<span style="font-size:10px;">No photo yet</span></div>';
-    } else if (photos.length === 1) {
-      thumbInner = '<img src="' + photos[0] + '" alt="' + u.title + '" style="width:100%;height:100%;object-fit:cover;">';
-    } else if (photos.length === 2) {
-      thumbInner = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;height:100%;">'
-        + '<img src="' + photos[0] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '<img src="' + photos[1] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '</div>';
-    } else if (photos.length === 3) {
-      thumbInner = '<div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;width:100%;height:100%;">'
-        + '<img src="' + photos[0] + '" style="width:100%;height:100%;object-fit:cover;grid-row:1/3;">'
-        + '<img src="' + photos[1] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '<img src="' + photos[2] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '</div>';
-    } else {
-      thumbInner = '<div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;width:100%;height:100%;">'
-        + '<img src="' + photos[0] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '<img src="' + photos[1] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '<img src="' + photos[2] + '" style="width:100%;height:100%;object-fit:cover;">'
-        + '<div style="position:relative;overflow:hidden;">'
-        + (photos[3] ? '<img src="' + photos[3] + '" style="width:100%;height:100%;object-fit:cover;filter:brightness(.4);">' : '<div style="width:100%;height:100%;background:#333;"></div>')
-        + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;">+' + (photos.length - 3) + '</div>'
-        + '</div></div>';
-    }
-    // Photo count badge (only if photos exist)
-    var badge = photos.length > 1
-      ? '<div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;font-size:9.5px;font-weight:700;border-radius:99px;padding:2px 8px;letter-spacing:.03em;">' + photos.length + ' photos</div>'
-      : '';
-    div.innerHTML = '<div class="gal-thumb" style="position:relative;">' + thumbInner + badge + '</div>'
-      + '<div class="gal-info">'
-      + '<div class="gal-unit">' + unitLabel + '</div>'
-      + '<div class="gal-title">' + u.title + '</div>'
-      + '<div class="gal-prompt">' + u.prompt + '</div>'
-      + '</div>';
-    (function(id, ul, uu) {
-      div.onclick = function() { openGalleryLightbox(id, ul, uu); };
-    })(uid, unitLabel, u);
-    grid.appendChild(div);
-  });
-}
-
-// ── PROGRESS ──────────────────────────────────────────────────────────────────
-function renderPaceTimeline() {
-  var el = document.getElementById("pace-timeline"); if (!el) return;
-  var unitOrder = ["gs","1","2","3","4","5","6","7","8","9","10","fp"];
-  var hasAnyActivity = unitOrder.some(function(uid) {
-    return D["unit_start_" + uid];
-  });
-  if (!hasAnyActivity) {
-    el.innerHTML = '<div class="pace-empty">No pace data yet.<br>Complete lessons and your timeline will appear here.</div>';
-    return;
-  }
-  var html = '<div class="pace-tl">';
-  unitOrder.forEach(function(uid, idx) {
-    var unit = null;
-    UNITS.forEach(function(u) { if (String(u.id) === uid) unit = u; });
-    if (!unit) return;
-    var lessons = UNIT_LESSONS[uid] || [];
-    var doneLessons = lessons.filter(function(l,i){ return D["lesson_"+uid+"_"+i]; }).length;
-    var allDone = lessons.length > 0 && doneLessons === lessons.length;
-    var startTs = D["unit_start_" + uid];
-    var doneTs  = D["unit_done_"  + uid];
-    var hasActivity = !!startTs;
-    // State: done | active | locked
-    var state = allDone ? "done" : (hasActivity ? "active" : "locked");
-    var unitLabel = typeof unit.id === "number" ? "Unit " + unit.id : uid === "gs" ? "Getting Started" : "Final Project";
-    // Format dates
-    var fmt = function(ts) {
-      return new Date(ts).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"});
-    };
-    var datesStr = "";
-    var daysStr = "";
-    if (startTs && doneTs) {
-      var days = Math.max(1, Math.round((doneTs - startTs) / 86400000));
-      datesStr = fmt(startTs) + " \u2013 " + fmt(doneTs);
-      daysStr = days === 1 ? "1 day" : days + " days";
-    } else if (startTs) {
-      var daysIn = Math.max(1, Math.round((Date.now() - startTs) / 86400000));
-      datesStr = "Started " + fmt(startTs);
-      daysStr = daysIn + " day" + (daysIn === 1 ? "" : "s") + " so far";
-    } else {
-      datesStr = "\u2014";
-    }
-    html += '<div class="pace-tl-row">'
-      + '<div class="pace-tl-dot ' + state + '"></div>'
-      + '<div>'
-      + '<div class="pace-tl-unit">' + unitLabel + '</div>'
-      + '<div class="pace-tl-title">' + unit.title + '</div>'
-      + '<div class="pace-tl-dates">' + datesStr
-      + (hasActivity && !allDone ? ' \u00b7 <span style="color:var(--mag);">' + doneLessons + '/' + lessons.length + ' lessons</span>' : '')
-      + '</div>'
-      + '</div>'
-      + '<div class="pace-tl-days' + (!hasActivity ? ' slow' : '') + '">' + (hasActivity ? daysStr : '') + '</div>'
-      + '</div>';
-  });
-  html += '</div>';
-  el.innerHTML = html;
-}
-
-function renderProgress() {
-  buildRhythm("rhythm-prog");
-  renderPaceTimeline();
-  var pb = document.getElementById("prog-bars"); pb.innerHTML = "";
-  UNITS.forEach(function(u) {
-    var pct   = COMPLETION[String(u.id)] || 0;
-    var label = typeof u.id === "number" ? "Unit " + u.id + ": " + u.title : u.title;
-    var row   = document.createElement("div"); row.className = "prog-row";
-    row.innerHTML = '<div class="prog-meta"><span class="prog-label">' + label + '</span><span class="prog-val">' + (pct>0?pct+"%":"\u2014") + '</span></div>'
-      + '<div class="prog-track"><div class="prog-fill" data-w="' + pct + '" style="width:0%"></div></div>';
-    pb.appendChild(row);
-  });
-  setTimeout(function(){ pb.querySelectorAll(".prog-fill").forEach(function(f){f.style.width=f.dataset.w+"%";}); }, 100);
-  var ids = ["proud-why","proud-diff","prog-inspire"];
-  ids.forEach(function(id){ var el=document.getElementById(id); if(el&&D[id]) el.value=D[id]; });
-  if (D["proud-photo"]) {
-    var slot = document.getElementById("proud-slot"); slot.classList.add("filled");
-    slot.innerHTML = '<img src="' + D["proud-photo"] + '" style="width:100%;height:90px;object-fit:cover;border-radius:7px;">'
-      + '<span class="assign-lbl">Photo added</span>'
-      + '<input type="file" id="proud-upload" accept="image/*" style="display:none" onchange="handleProudPhoto(event)">';
-  }
-}
-function handleProudPhoto(e) {
-  var f = e.target.files[0]; if (!f) return;
-  var r = new FileReader();
-  r.onload = function(ev) {
-    compressPhoto(ev.target.result, 800, 0.78, function(compressed) {
-      savePhoto("proud-photo", compressed);
-      var slot = document.getElementById("proud-slot"); slot.classList.add("filled");
-      slot.innerHTML = '<img src="' + compressed + '" style="width:100%;height:90px;object-fit:cover;border-radius:7px;">'
-        + '<span class="assign-lbl">Photo added</span>'
-        + '<input type="file" id="proud-upload" accept="image/*" style="display:none" onchange="handleProudPhoto(event)">';
-      toast("Photo saved \u2713");
-    });
-  };
-  r.readAsDataURL(f);
-}
-
-// ── PDF DOWNLOAD ──────────────────────────────────────────────────────────────
-function downloadPDF() {
-  // Open all unit bodies before printing so content is visible
-  // Print: modal units opened inline above
-  // Small delay to allow render, then print
-  setTimeout(function() {
-    window.print();
-  }, 300);
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
-restoreTheme();
-
-// ── LOCAL TEST MODE ──
-// Automatically active when opened as a local file (file://)
-// Bypasses Supabase auth entirely — data saves to localStorage only
-
-
-
-// ── COURSE UNIT GRID & VIEWER ────────────────────────────────────────────────
-var COURSE_UNITS = [
-  {id:'gs', num:'Getting Started',  title:'Getting Started',                     sub:'Before we start: experience, goals, and mindset',     url:'https://clondon85.github.io/GettingStarted/'},
-  {id:'1',  num:'Unit 1',           title:'Introduction & The Gear',             sub:'Cameras, lenses, focal length, and digital workflow',        url:'https://clondon85.github.io/Introduction_Gear/'},
-  {id:'2',  num:'Unit 2',           title:'Photography Basics',                  sub:'Exposure, aperture, shutter speed, and ISO',                 url:'https://clondon85.github.io/PhotographyBasics/'},
-  {id:'3',  num:'Unit 3',           title:'The Art of Photography',              sub:'Light, composition, and color theory',                       url:'https://clondon85.github.io/ArtOfPhotography/'},
-  {id:'4',  num:'Unit 4',           title:'Post Processing',                     sub:'Workflow, editing, and developing a consistent style',       url:'https://clondon85.github.io/PostProcessing/'},
-  {id:'5',  num:'Unit 5',           title:'The Decision Process',                sub:'Visual narrative, culling, and feedback',                    url:'https://clondon85.github.io/TheDecisionProcess/'},
-  {id:'6',  num:'Unit 6',           title:'Taking Your Camera Skills Further',   sub:'Focus systems, metering, and flash',                         url:'https://clondon85.github.io/GoingFurther/'},
-  {id:'7',  num:'Unit 7',           title:'Personal Projects',                   sub:'Brainstorming, planning, and beginning a project',           url:'https://clondon85.github.io/PersonalProjects/'},
-  {id:'8',  num:'Unit 8',           title:'The Art of Photography, Part 2',      sub:'Lighting, composition, and colour revisited',                url:'', opens:'Apr 8'},
-  {id:'9',  num:'Unit 9',           title:'Exploration',                         sub:'Genre exploration and creative stretch',                     url:'', opens:'Apr 22'},
-  {id:'10', num:'Unit 10',          title:'Wrapping Up and Next Steps',          sub:'Confidence, reflection, and going further',                  url:'', opens:'May 6'},
-  {id:'fp', num:'Final Project',    title:'Final Project',                       sub:'Your long-term personal project and ongoing practice',       url:'', opens:'May 20'},
-];
-
-function renderCourseGrid() {
-  var grid = document.getElementById('course-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  var curKey = String(currentUnitKey());
-
-  COURSE_UNITS.forEach(function(u) {
-    var uid = String(u.id);
-    var lessons = UNIT_LESSONS[uid] || [];
-    var done = lessons.filter(function(l,i){ return D['lesson_'+uid+'_'+i]; }).length;
-    var pct = lessons.length ? Math.round((done/lessons.length)*100) : 0;
-    var isLocked = false;
-    if (!u.url) { isLocked = true; }
-    var isCurrent = uid === curKey && !isLocked;
-    var filled = pct > 50;
-
-    var tile = document.createElement('div');
-    tile.className = 'ptile' + (pct===100?' done':'') + (isLocked?' ptile-locked':'');
-
-    var pctCorner = (pct>0 && pct<100)
-      ? '<div style="position:absolute;top:8px;right:10px;font-size:clamp(8px,0.75vw,11px);font-weight:800;color:'+(filled?'rgba(255,255,255,.95)':'var(--mag)')+';z-index:2;text-shadow:'+(filled?'0 1px 3px rgba(0,0,0,.4)':'none')+';">'+pct+'%</div>'
-      : '';
-
-    if (isLocked) {
-      tile.innerHTML = '<div class="ptile-label">'
-        + '<div class="ptile-name-text" style="color:var(--on-card);">'+(u.id==='gs'?'Getting Started':u.id==='fp'?'Final Project':u.num+': '+u.title)+'</div>'
-        + '<div style="display:flex;align-items:center;gap:4px;margin-top:7px;font-size:9.5px;font-weight:600;color:var(--on-card-muted);">'
-        + '<svg width="9" height="9" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.2"/></svg>'
-        + 'Opens '+u.opens+'</div></div>';
-    } else {
-      tile.innerHTML = '<div class="ptile-fill" data-h="'+pct+'" style="height:0%"></div>'
-        + (pct===100?'<div style="position:absolute;top:8px;right:10px;color:var(--yellow);font-size:12px;font-weight:800;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.3);">\u2713</div>':'')
-        + (isCurrent?'<div style="position:absolute;top:8px;left:10px;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);z-index:2;background:rgba(255,255,255,.85);padding:2px 6px;border-radius:99px;">Current</div>':'')
-        + pctCorner
-        + '<div class="ptile-label"><div class="ptile-name-text" style="'+(filled?'color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.5);':'')+'">'+(u.id==='gs'?'Getting Started':(u.id==='fp'?'Final Project':u.num+': '+u.title))+'</div></div>';
-      tile.addEventListener('click', function(){ openUnitViewer(u); });
-    }
-    grid.appendChild(tile);
-  });
-  setTimeout(function(){
-    grid.querySelectorAll('.ptile-fill').forEach(function(f){ f.style.height=f.dataset.h+'%'; });
-  },100);
-}
-
-var _uvCurrentIdx = 0;
-var _uvUnlocked = [];
-
-function openUnitViewer(u) {
-  _uvUnlocked = COURSE_UNITS.filter(function(cu){ return !!cu.url; });
-  _uvCurrentIdx = 0;
-  for(var i=0;i<_uvUnlocked.length;i++){ if(_uvUnlocked[i].id===u.id){ _uvCurrentIdx=i; break; } }
-  _uvLoad(_uvUnlocked[_uvCurrentIdx]);
-  document.getElementById('unit-viewer').classList.add('uv-open');
-}
-
-var _uvCurrentUnit = null;
-function _uvLoad(u) {
-  _uvCurrentUnit = u;
-  document.getElementById('uv-title').textContent = u.id==='gs'?'Getting Started':u.id==='fp'?'Final Project':u.num+': '+u.title;
-  document.getElementById('uv-sub').textContent = u.sub;
-  document.getElementById('uv-iframe').src = u.url;
-  // Auto-record unit start timestamp (option 4: opened = started)
-  var uid = String(u.id);
-  if (!D['unit_start_' + uid]) {
-    D['unit_start_' + uid] = Date.now();
-    persist();
-  }
-  var prev=document.getElementById('uv-prev-btn');
-  var next=document.getElementById('uv-next-btn');
-  if(prev) prev.style.visibility = _uvCurrentIdx>0?'visible':'hidden';
-  if(next) next.style.visibility = _uvCurrentIdx<_uvUnlocked.length-1?'visible':'hidden';
-}
-
-function uvNav(dir) {
-  var ni=_uvCurrentIdx+dir;
-  if(ni<0||ni>=_uvUnlocked.length) return;
-  _uvCurrentIdx=ni;
-  _uvLoad(_uvUnlocked[_uvCurrentIdx]);
-}
-
-function closeUnitViewer() {
-  _uvCurrentUnit = null;
-  document.getElementById('unit-viewer').classList.remove('uv-open');
-  document.getElementById('uv-iframe').src='';
-  nav('dashboard', false);
-}
-
-function openCurrentUnitLesson() {
-  var curKey = String(currentUnitKey());
-  var u = null;
-  COURSE_UNITS.forEach(function(cu){ if(String(cu.id)===curKey) u=cu; });
-  if (u) openUnitViewer(u);
-}
-
-// ── FEEDBACK MODAL ────────────────────────────────────────────────────────────
-var _fbRating = 0;
-var _fbCat = '';
-
-function openFeedbackModal() {
-  _fbRating = 0; _fbCat = '';
-  document.getElementById('fb-text').value = '';
-  document.getElementById('fb-msg').textContent = '';
-  document.querySelectorAll('.fb-star').forEach(function(s){ s.style.opacity='.35'; s.style.color=''; });
-  document.querySelectorAll('.fb-cat').forEach(function(b){ b.style.background='none'; b.style.borderColor='var(--input-border)'; b.style.color='var(--on-card-muted)'; });
-  document.getElementById('modal-feedback').style.display = 'block';
-}
-
-function closeFeedbackModal() {
-  document.getElementById('modal-feedback').style.display = 'none';
-}
-
-function setFbRating(n) {
-  _fbRating = n;
-  document.querySelectorAll('.fb-star').forEach(function(s){
-    var v = parseInt(s.dataset.v);
-    s.style.opacity = v <= n ? '1' : '.35';
-    s.style.color = v <= n ? 'var(--yellow)' : '';
-  });
-}
-
-function setFbCat(el) {
-  _fbCat = el.dataset.v;
-  document.querySelectorAll('.fb-cat').forEach(function(b){
-    b.style.background = 'none';
-    b.style.borderColor = 'var(--input-border)';
-    b.style.color = 'var(--on-card-muted)';
-  });
-  el.style.background = 'var(--mag)';
-  el.style.borderColor = 'var(--mag)';
-  el.style.color = '#fff';
-}
-
-function submitFeedbackModal() {
-  var text = (document.getElementById('fb-text').value || '').trim();
-  var msg = document.getElementById('fb-msg');
-  if (!_fbRating) { msg.textContent = 'Please select a rating.'; return; }
-  if (!_fbCat) { msg.textContent = 'Please select a category.'; return; }
-  if (!text) { msg.textContent = 'Please enter your feedback.'; return; }
-
-  var userEmail = currentUser ? currentUser.email : 'unknown';
-  var userName = D['display_name'] || userEmail;
-  var subject = encodeURIComponent('My Focal Point Feedback: ' + _fbCat + ' (' + _fbRating + '/5)');
-  var body = encodeURIComponent(
-    'From: ' + userName + ' (' + userEmail + ')\n' +
-    'Rating: ' + _fbRating + '/5\n' +
-    'Category: ' + _fbCat + '\n\n' +
-    text
-  );
-
-  window.open('mailto:focalpointfeedback@gmail.com?subject=' + subject + '&body=' + body);
-  msg.style.color = 'var(--teal)';
-  msg.textContent = 'Thanks for your feedback!';
-  setTimeout(closeFeedbackModal, 1800);
-}
-window.addEventListener('message', function(event) {
-  // Accept messages from Rise lesson buttons (use window.top in Rise, not window.parent)
-  // Rise wraps lessons in nested iframes, so window.parent points to Rise's frame, not this app
-  // Using window.top ensures the message reaches this listener regardless of nesting
-  if (!event.data || event.data.type !== 'lessonComplete') return;
-  var uid = String(event.data.unitId);
-  // Normalize common aliases: '0' or 'gs' both map to 'gs'
-  if (uid === '0' || uid === 'gs') uid = 'gs';
-  if (uid === 'fp' || uid === 'final') uid = 'fp';
-  var lessonIdx = parseInt(event.data.lessonIndex);
-  if (isNaN(lessonIdx)) return;
-  var key = 'lesson_' + uid + '_' + lessonIdx;
-  if (D[key]) return; // already marked complete
-  D[key] = true;
-  saveUnitProgress(uid);
-  persist();
-  // Refresh dashboard tiles immediately
-  renderDash();
-  setTimeout(function(){
-    document.querySelectorAll('.ptile-fill').forEach(function(f){
-      f.style.transition = 'none';
-      f.style.height = (f.dataset.h || '0') + '%';
-    });
-  }, 50);
-  // Show confirmation toast
-  toast('✓ Lesson marked complete. Dashboard updated.');
-});
-
-// ── TOUR ──────────────────────────────────────────────────────────────────────
-var TOUR_STEPS = [
-  {
-    target: 'topbar-nav',
-    arrow: 'arrow-top',
-    title: 'Your navigation',
-    desc: 'These five buttons take you everywhere in My Focal Point. Dashboard, Reflections, Goals, Gallery, and Quick Notes are each one click away from anywhere in the app.',
-    pos: 'below'
-  },
-  {
-    target: 'tnav-dashboard',
-    arrow: 'arrow-top-left',
-    title: 'Dashboard',
-    desc: 'Your home base. See your course progress at a glance, pick up where you left off, and track your active goals.',
-    pos: 'below'
-  },
-  {
-    target: 'tnav-journal',
-    arrow: 'arrow-top-left',
-    title: 'Reflections',
-    desc: 'One page per unit. Write about what you learned, what challenged you, and what you want to work on. Your reflections are private. Only you can see them.',
-    pos: 'below'
-  },
-  {
-    target: 'tnav-goals',
-    arrow: 'arrow-top-left',
-    title: 'Goals',
-    desc: 'Set learning objectives for yourself, track your progress, and revisit them as you move through the course. Use Suggested Goals for a head start.',
-    pos: 'below'
-  },
-  {
-    target: 'tnav-gallery',
-    arrow: 'arrow-top-right',
-    title: 'Gallery',
-    desc: 'Every photo you submit for an assignment lives here. Watch your portfolio grow as you move through the course.',
-    pos: 'below'
-  },
-  {
-    target: 'tnav-notes',
-    arrow: 'arrow-top-right',
-    title: 'Quick Notes',
-    desc: 'Capture thoughts as they happen: while you are mid-lesson, reviewing photos, or just inspired. Tag them by unit to find them later.',
-    pos: 'below'
-  },
-  {
-    target: 'tour-stats',
-    arrow: 'arrow-top',
-    title: 'Your stats',
-    desc: 'A quick snapshot of where you are: sections complete, assignments submitted, notes captured, and active goals.',
-    pos: 'below'
-  },
-  {
-    target: 'dash-prog',
-    arrow: 'arrow-left',
-    title: 'Unit progress',
-    desc: 'Every unit in the course is shown here. Completed lessons fill the tile with the gradient. Click any unlocked unit to open its lesson.',
-    pos: 'right'
-  },
-  {
-    target: 'course-pace-card',
-    arrow: 'arrow-right',
-    title: 'Where you are',
-    desc: 'Always shows your current unit, how many lessons you have completed, and the assignment. Open Lesson takes you straight into the material. My Reflection opens your notes for that unit.',
-    pos: 'left'
-  },
-  {
-    target: 'tour-fab',
-    arrow: 'arrow-bottom-right',
-    title: 'Quick Note button',
-    desc: 'This yellow button is always here, no matter where you are in the app. Tap it to capture a thought instantly without losing your place.',
-    pos: 'above'
-  }
-];
-
-var _tourStep = 0;
-var _tourActive = false;
-
-function startTour() {
-  nav('dashboard', false);
-  _tourStep = 0;
-  _tourActive = true;
-  var overlay = document.getElementById('tour-overlay');
-  if (overlay) overlay.classList.add('active');
-  // Build dots
-  var dots = document.getElementById('tour-dots');
-  if (dots) {
-    dots.innerHTML = '';
-    TOUR_STEPS.forEach(function(_, i) {
-      var d = document.createElement('div');
-      d.className = 'tour-dot' + (i === 0 ? ' active' : '');
-      d.id = 'tour-dot-' + i;
-      dots.appendChild(d);
-    });
-  }
-  tourShowStep(0);
-}
-
-function tourShowStep(idx) {
-  var step = TOUR_STEPS[idx];
-  if (!step) { endTour(); return; }
-
-  var el = document.getElementById(step.target);
-  if (!el) { tourNext(); return; } // skip if element not found
-
-  var highlight = document.getElementById('tour-highlight');
-  var bubble = document.getElementById('tour-bubble');
-  var label = document.getElementById('tour-step-label');
-  var title = document.getElementById('tour-title');
-  var desc = document.getElementById('tour-desc');
-  var nextBtn = document.getElementById('tour-next-btn');
-
-  // Update content
-  label.textContent = 'Step ' + (idx + 1) + ' of ' + TOUR_STEPS.length;
-  title.textContent = step.title;
-  desc.textContent = step.desc;
-  nextBtn.textContent = idx === TOUR_STEPS.length - 1 ? 'Done' : 'Next';
-
-  // Update dots
-  document.querySelectorAll('.tour-dot').forEach(function(d, i) {
-    d.classList.toggle('active', i === idx);
-  });
-
-  // Position highlight on target
-  var rect = el.getBoundingClientRect();
-  var pad = 6;
-  highlight.style.display = 'block';
-  highlight.style.left = (rect.left - pad) + 'px';
-  highlight.style.top = (rect.top - pad) + 'px';
-  highlight.style.width = (rect.width + pad * 2) + 'px';
-  highlight.style.height = (rect.height + pad * 2) + 'px';
-
-  // Position bubble
-  bubble.style.display = 'block';
-  bubble.className = 'tour-bubble'; // reset classes
-  bubble.classList.add(step.arrow || 'arrow-top');
-
-  var bW = 300, bH = 160;
-  var vW = window.innerWidth, vH = window.innerHeight;
-
-  setTimeout(function() {
-    var bRect = bubble.getBoundingClientRect();
-    bH = bRect.height || bH;
-  }, 10);
-
-  if (step.pos === 'below') {
-    // Try right first, fall back to below
-    var spaceRight = vW - rect.right - bW - 20;
-    if (spaceRight >= 0) {
-      bubble.style.left = (rect.right + 14) + 'px';
-      bubble.style.top = Math.max(70, Math.min(rect.top + rect.height/2 - 80, vH - bH - 12)) + 'px';
-      bubble.style.bottom = 'auto';
-    } else {
-      bubble.style.top = (rect.bottom + pad + 14) + 'px';
-      var left = rect.left + rect.width / 2 - bW / 2;
-      left = Math.max(12, Math.min(left, vW - bW - 12));
-      bubble.style.left = left + 'px';
-      bubble.style.bottom = 'auto';
-    }
-  } else if (step.pos === 'above') {
-    bubble.style.bottom = (vH - rect.top + pad + 14) + 'px';
-    bubble.style.top = 'auto';
-    var left = rect.left + rect.width / 2 - bW / 2;
-    left = Math.max(12, Math.min(left, vW - bW - 12));
-    bubble.style.left = left + 'px';
-  } else if (step.pos === 'left') {
-    bubble.style.top = Math.max(12, rect.top) + 'px';
-    bubble.style.left = (rect.left - bW - 20) + 'px';
-    bubble.style.bottom = 'auto';
-  } else if (step.pos === 'right') {
-    bubble.style.top = Math.max(12, rect.top + rect.height/2 - 80) + 'px';
-    bubble.style.left = (rect.right + 20) + 'px';
-    bubble.style.bottom = 'auto';
-  }
-
-  bubble.style.width = bW + 'px';
-}
-
-function tourNext() {
-  _tourStep++;
-  if (_tourStep >= TOUR_STEPS.length) {
-    endTour();
-  } else {
-    tourShowStep(_tourStep);
-  }
-}
-
-function startTutorial() { startTour(); }
-
-function endTour() {
-  _tourActive = false;
-  var overlay = document.getElementById('tour-overlay');
-  var highlight = document.getElementById('tour-highlight');
-  var bubble = document.getElementById('tour-bubble');
-  if (overlay) overlay.classList.remove('active');
-  if (highlight) highlight.style.display = 'none';
-  if (bubble) bubble.style.display = 'none';
-  // Mark tour as seen
-  try { localStorage.setItem('pc26_tour', '1'); } catch(e) {}
-  D['tour_seen'] = true;
-  persist();
-}
-
-// Close tour if user presses Escape
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && _tourActive) endTour();
-});
-
-var LOCAL_MODE = window.location.protocol === "file:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-if (LOCAL_MODE) {
-  // Shim persist/savePhoto to use localStorage
-  persist = function() {
-    try { localStorage.setItem("pc26_d", JSON.stringify(D)); } catch(e) {}
-    try { localStorage.setItem("pc26_g", JSON.stringify(goals)); } catch(e) {}
-    try { localStorage.setItem("pc26_notes", JSON.stringify(notes)); } catch(e) {}
-    showSaveIndicator();
-  };
-  savePhoto = function(slot, dataUrl) { D[slot] = dataUrl; persist(); };
-  // Shim Supabase note/goal writes to be no-ops (data lives in D/goals/notes via persist)
-  addNote = function() {
-    var text = document.getElementById("note-text").value.trim();
-    if (!text) { toast("Write something first."); return; }
-    var uid = document.getElementById("note-unit").value;
-    var tag = document.getElementById("note-tag").value;
-    var unitLabel = "General";
-    UNITS.forEach(function(u) { if (String(u.id) === uid) unitLabel = u.title; });
-    notes.unshift({id:Date.now(), ts:Date.now(), text:text, uid:uid, unitLabel:unitLabel, tag:tag});
-    persist();
-    document.getElementById("note-text").value = "";
-    renderNotes(); buildRhythm("rhythm-dash"); buildRhythm("rhythm-prog");
-    var nc = document.getElementById("dash-nc"); if (nc) nc.textContent = notes.length;
-    toast("Note saved \u2713");
-  };
-  deleteNote = function(id) {
-    notes = notes.filter(function(n){return n.id !== id;});
-    persist(); renderNotes(); buildRhythm("rhythm-dash"); buildRhythm("rhythm-prog");
-  };
-  addGoal = function() {
-    var t = document.getElementById("g-title").value.trim();
-    if (!t) { toast("Give your goal a title."); return; }
-    goals.unshift({id:Date.now(), title:t, cat:document.getElementById("g-cat").value, why:document.getElementById("g-why").value||"My goal", pct:0, done:false});
-    persist(); closeModal("modal-goal"); renderGoals(); renderDash(); toast("Goal added \u2713");
-    document.getElementById("g-title").value = ""; document.getElementById("g-why").value = "";
-  };
-  addSuggestedGoal = function(i) {
-    var sg = SUGGESTED_GOALS[i];
-    goals.unshift({id:Date.now(), title:sg.title, cat:sg.cat, why:sg.why, pct:0, done:false});
-    persist(); renderGoals(); renderDash(); toast("Goal added \u2713");
-  };
-  doneGoal = function(i) {
-    goals[i].done = true; goals[i].pct = 100;
-    persist(); renderGoals(); renderDash(); toast("Goal complete \uD83C\uDF89");
-  };
-  // Load from localStorage
-  try { D = JSON.parse(localStorage.getItem("pc26_d") || "{}"); } catch(e) { D = {}; }
-  try { goals = JSON.parse(localStorage.getItem("pc26_g") || "null") || []; } catch(e) { goals = []; }
-  try { notes = JSON.parse(localStorage.getItem("pc26_notes") || "[]"); } catch(e) { notes = []; }
-  // Restore completion from D
-  Object.keys(COMPLETION).forEach(function(k) {
-    if (D["unit_pct_" + k] !== undefined) COMPLETION[k] = D["unit_pct_" + k];
-  });
-  // Mock user
-  currentUser = {id:"local-test", email:"test@local.dev", user_metadata:{name:"Test User"}};
-  // Show dev banner
-  var banner = document.createElement("div");
-  banner.style.cssText = "position:fixed;top:0;left:0;right:0;height:28px;background:#EACC28;color:#1a1018;font-family:monospace;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:16px;z-index:9999;letter-spacing:.04em;";
-  banner.innerHTML = "⚠ LOCAL TEST MODE — auth bypassed, data saves to browser only &nbsp;<button onclick=\"this.parentNode.remove()\" style=\"background:rgba(0,0,0,.15);border:none;cursor:pointer;font-family:monospace;font-size:11px;padding:2px 8px;border-radius:3px;\">dismiss</button>";
-  document.body.prepend(banner);
-  // Offset main content for banner
-  document.querySelector(".main").style.paddingTop = "64px";
-  document.querySelector(".sb").style.paddingTop = "52px";
-  // Hide login, show journal
-  document.getElementById("login-screen").classList.add("hidden");
-  // Set display name
-  var nameEl = document.getElementById("dash-name");
-  if (nameEl) nameEl.textContent = D["display_name"] || "you";
-  // Update sidebar
-  var emailEl = document.getElementById("sb-email"); if (emailEl) emailEl.textContent = "local test mode";
-  var avEl = document.getElementById("sb-av"); if (avEl) avEl.textContent = "T";
-  // Set initial hash without pushing
-  var _initView = location.hash.slice(1);
-  var _validViews = ["dashboard","journal","goals","gallery","notes"];
-  if (_initView && _validViews.indexOf(_initView) >= 0) {
-    nav(_initView, false);
-  } else {
-    nav("dashboard", false);
-  }
-  checkFirstLogin();
-  // Show privacy banner if not yet dismissed
-  try {
-    if (!localStorage.getItem('pc26_privacy')) {
-      var pn = document.getElementById('privacy-note');
-      if (pn) pn.style.display = 'block';
-    }
-  } catch(e) {
-    var pn = document.getElementById('privacy-note');
-    if (pn) pn.style.display = 'block';
-  }
-} else {
-  // Production: use Supabase auth
-
-  var _sessionHandled = false;
-  function handleSession(session) {
-    if (session && session.user) {
-      // Only load data once — ignore all subsequent auth events for same user
-      if (_sessionHandled) return;
-      _sessionHandled = true;
-      currentUser = session.user;
-      var emailEl = document.getElementById("sb-email");
-      if (emailEl) emailEl.textContent = session.user.email;
-      var emailMob = document.getElementById("sb-email-mob");
-      if (emailMob) emailMob.textContent = session.user.email;
-      var avEl = document.getElementById("sb-av");
-      if (avEl) avEl.textContent = session.user.email.charAt(0).toUpperCase();
-      var avBtn = document.getElementById("topbar-av-btn");
-      if (avBtn) avBtn.title = session.user.email;
-      document.getElementById("login-screen").classList.add("hidden");
-      loadUserData(function() {
-        var nameEl = document.getElementById("dash-name");
-        if (nameEl) {
-          var displayName = D["display_name"] || session.user.user_metadata.name || session.user.email.split("@")[0];
-          nameEl.textContent = displayName;
-        }
-        var _iv = location.hash.slice(1);
-        var _vv = ["dashboard","journal","goals","gallery","notes"];
-        if (_iv && _vv.indexOf(_iv) >= 0) {
-          nav(_iv, false);
-        } else {
-          nav('dashboard', false);
-        }
-        checkFirstLogin();
-      });
-    } else {
-      currentUser = null;
-      document.getElementById("login-screen").classList.remove("hidden");
-    }
-  }
-
-sb.auth.onAuthStateChange(function(event, session) {
-  // SIGNED_IN fires on magic link return and on session restore
-  if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED" || event === "INITIAL_SESSION") {
-    handleSession(session);
-  } else if (event === "SIGNED_OUT") {
-    handleSession(null);
-  } else if (event === "TOKEN_REFRESH_FAILED") {
-    // Stale token — clear it and show login
-    try { _safeStorage.removeItem("pc26_auth"); } catch(e) {}
-    handleSession(null);
-  }
-});
-
-// Explicitly check for an existing session on load — required for Safari
-// which may not fire onAuthStateChange for already-active sessions
-sb.auth.getSession().then(function(res) {
-  if (res.data && res.data.session) {
-    handleSession(res.data.session);
-  } else {
-    // No session — show login unless onAuthStateChange fires first
-    document.getElementById("login-screen").classList.remove("hidden");
-  }
-});
-} // end else (production mode)
-
-
-
-
-
-
-
-// ── DISPLAY NAME / FIRST LOGIN ────────────────────────────────────────────────
-function saveDisplayName() {
-  var val = (document.getElementById("setname-input") || {}).value;
-  if (!val) val = "";
-  val = val.trim();
-  if (!val) { return; }
-  var isNew = !D["display_name"];
-  D["display_name"] = val;
-  persist();
-  closeModal("modal-setname");
-  if (isNew) {
-    var tourSeen = false;
-    try { tourSeen = !!localStorage.getItem('pc26_tour'); } catch(e) {}
-    if (!tourSeen && !D['tour_seen']) setTimeout(startTutorial, 600);
-  }
-  document.querySelectorAll("#dash-name").forEach(function(el){ el.textContent = val; });
-
-  // Show the welcome/orientation modal
-  
-}
-
-var _firstLoginDone = false;
-function checkFirstLogin() {
-  if (_firstLoginDone) return;
-  _firstLoginDone = true;
-  if (!D['display_name']) {
-    // New user: start on dashboard, show name prompt
-    nav('dashboard', false);
-    setTimeout(function(){
-      openModal('modal-setname');
-      var inp = document.getElementById('setname-input');
-      if (inp) setTimeout(function(){ inp.focus(); }, 100);
-    }, 300);
-  } else {
-    // Returning user: show tour only if never seen
-    var tourSeen = false;
-    try { tourSeen = !!localStorage.getItem('pc26_tour'); } catch(e) {}
-    if (!tourSeen) tourSeen = !!D['tour_seen'];
-    if (!tourSeen) setTimeout(startTutorial, 800);
-  }
-}
-
-
-
-// ── AUTOSAVE PROMPT (debounced) ───────────────────────────────────────────────
-var _promptSaveTimer = null;
-function autoSavePrompt(el) {
-  var uid = el.dataset.uid;
-  if (!uid) return;
-  var pidx = parseInt(el.dataset.pidx) || 0;
-  D["uprompt_" + uid + "_" + pidx] = el.value;
-  persist();
-  showSaveIndicator();
-}
-function autoSavePromptIdx(el) {
-  autoSavePrompt(el);
-  var uid = el.dataset.uid; var pidx = parseInt(el.dataset.pidx);
-  var tab = document.getElementById("ptab-" + uid + "-" + pidx);
-  if (tab) { if (el.value.trim()) tab.classList.add("has-answer"); else tab.classList.remove("has-answer"); }
-  if (uid) refreshSidebarUnit(uid);
-}
-function switchPromptTab(uid, idx, total) {
-  for (var i = 0; i < total; i++) {
-    var tab = document.getElementById("ptab-" + uid + "-" + i);
-    var pane = document.getElementById("ppane-" + uid + "-" + i);
-    if (tab) tab.classList.toggle("active", i === idx);
-    if (pane) pane.classList.toggle("active", i === idx);
-  }
-}
-
-function toggleSuggestedGoals() {
-  var modal = document.getElementById("modal-sug-goals");
-  var body = document.getElementById("sug-modal-body");
-  if (!modal || !body) return;
-  body.innerHTML = "";
-  renderSuggestedGoals(body);
-  modal.style.display = "block";
-}
-function closeSugModal() {
-  var modal = document.getElementById("modal-sug-goals");
-  if (modal) modal.style.display = "none";
-}
-// ── QUICK NOTE MODAL ──────────────────────────────────────────────────────────
-function openQuickNote() {
-  // Populate unit select
-  var sel = document.getElementById("modal-note-unit");
-  if (sel && sel.options.length <= 1) {
-    sel.innerHTML = '<option value="general">General</option>';
-    UNITS.forEach(function(u) {
-      var label = typeof u.id === "number" ? "Unit " + u.id + ": " + u.title : u.title;
-      var opt = document.createElement("option"); opt.value = String(u.id); opt.textContent = label;
-      sel.appendChild(opt);
-    });
-  }
-  // Pre-select current unit — use viewer unit if lesson is open, otherwise course progress
-  if (sel) {
-    var curKey = String(_uvCurrentUnit ? _uvCurrentUnit.id : currentUnitKey());
-    for (var i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].value === curKey) { sel.selectedIndex = i; break; }
-    }
-  }
-  // Show live datetime
-  var now = new Date();
-  var dtEl = document.getElementById("modal-note-datetime");
-  if (dtEl) {
-    dtEl.textContent = now.toLocaleDateString("en-GB", {weekday:"long", day:"numeric", month:"long", year:"numeric"})
-      + " · " + now.toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"});
-  }
-  // Store the timestamp for saving
-  window._noteOpenTs = now.getTime();
-  openModal("modal-note");
-  setTimeout(function(){ var t = document.getElementById("modal-note-text"); if(t) t.focus(); }, 100);
-}
-function saveModalNote() {
-  var text = document.getElementById("modal-note-text").value.trim();
-  if (!text) { toast("Write something first."); return; }
-  var uid = document.getElementById("modal-note-unit").value;
-  var tag = document.getElementById("modal-note-tag").value;
-  var unitLabel = "General";
-  UNITS.forEach(function(u) { if (String(u.id) === uid) unitLabel = u.title; });
-  if (!currentUser) return;
-  if (LOCAL_MODE) {
-    var ts = window._noteOpenTs || Date.now();
-    notes.unshift({id:ts, ts:ts, text:text, uid:uid, unitLabel:unitLabel, tag:tag});
-    persist();
-    document.getElementById("modal-note-text").value = "";
-    closeModal("modal-note");
-    renderNotes(); buildRhythm("rhythm-prog");
-    var nc = document.getElementById("dash-nc"); if (nc) nc.textContent = notes.length;
-    toast("Note saved ✓");
-    return;
-  }
-  sb.from("notes").insert({user_id:currentUser.id, text:text, uid:uid, unit_label:unitLabel, tag:tag})
-    .select().single()
-    .then(function(res) {
-      if (res.error) { console.error("[journal] modal note failed:", res.error); toast("Save failed. Check your connection."); return; }
-      if (res.data) notes.unshift({id:res.data.id, ts:new Date(res.data.created_at).getTime(), text:text, uid:uid, unitLabel:unitLabel, tag:tag});
-      document.getElementById("modal-note-text").value = "";
-      closeModal("modal-note");
-      renderNotes(); buildRhythm("rhythm-prog");
-      var nc = document.getElementById("dash-nc"); if (nc) nc.textContent = notes.length;
-      showSaveIndicator();
-      toast("Note saved ✓");
-    });
-}
-</script>
-
-<!-- FLOATING QUICK NOTE BUTTON -->
-<div class="qnfab">
-  <button id="tour-fab" class="qnfab-btn" onclick="openQuickNote()" title="Add quick note" aria-label="Add quick note">
-    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 5H7a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2v-5" stroke="#1a1018" stroke-width="2" stroke-linecap="round"/><path d="M17.5 3.5a2.121 2.121 0 013 3L13 14l-4 1 1-4 6.5-7.5z" stroke="#1a1018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-</div>
-
-<!-- SUGGESTED GOALS MODAL -->
-<div id="modal-sug-goals" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);overflow-y:auto;" onclick="if(event.target===this)closeSugModal()">
-  <div style="background:linear-gradient(160deg,#2a0a28 0%,#1a1032 100%);border-radius:20px;max-width:560px;width:calc(100% - 24px);margin:40px auto;padding:28px 28px 20px;position:relative;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-      <div style="font-size:16px;font-weight:700;color:#FFFCF6;">Suggested goals</div>
-      <button onclick="closeSugModal()" style="background:none;border:none;cursor:pointer;font-size:20px;color:rgba(255,252,246,.5);line-height:1;">×</button>
-    </div>
-    <div style="font-size:12px;color:rgba(255,252,246,.5);margin-bottom:20px;">Pick up to 3 to get started, or write your own.</div>
-    <div id="sug-modal-body"></div>
-  </div>
-</div>
-
-<!-- FEEDBACK MODAL -->
-<div id="modal-feedback" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);" onclick="if(event.target===this)closeFeedbackModal()">
-  <div style="background:var(--card);border-radius:20px;max-width:480px;width:calc(100% - 24px);margin:60px auto;padding:28px 28px 22px;position:relative;color:var(--on-card);">
-    <button onclick="closeFeedbackModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--on-card-muted);line-height:1;">×</button>
-    <div style="font-size:17px;font-weight:700;margin-bottom:4px;">Send feedback</div>
-    <div style="font-size:12px;color:var(--on-card-muted);margin-bottom:20px;">Your feedback goes directly to Chelsea.</div>
-    <div style="margin-bottom:14px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">How would you rate your experience?</div>
-      <div id="fb-stars" style="display:flex;gap:8px;">
-        <span class="fb-star" data-v="1" onclick="setFbRating(1)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
-        <span class="fb-star" data-v="2" onclick="setFbRating(2)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
-        <span class="fb-star" data-v="3" onclick="setFbRating(3)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
-        <span class="fb-star" data-v="4" onclick="setFbRating(4)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
-        <span class="fb-star" data-v="5" onclick="setFbRating(5)" style="font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s;">★</span>
-      </div>
-    </div>
-    <div style="margin-bottom:14px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">Category</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;" id="fb-cats">
-        <button class="fb-cat" data-v="Bug" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">Bug</button>
-        <button class="fb-cat" data-v="Feature request" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">Feature request</button>
-        <button class="fb-cat" data-v="General" onclick="setFbCat(this)" style="background:none;border:1.5px solid var(--input-border);border-radius:99px;padding:5px 14px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--on-card-muted);cursor:pointer;transition:all .15s;">General</button>
-      </div>
-    </div>
-    <div style="margin-bottom:20px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-card-muted);margin-bottom:8px;">Your feedback</div>
-      <textarea id="fb-text" placeholder="Tell us what's on your mind..." style="width:100%;height:110px;border-radius:10px;border:1.5px solid var(--input-border);background:var(--input);color:var(--on-card);font-family:'Poppins',sans-serif;font-size:13px;padding:10px 12px;resize:none;outline:none;"></textarea>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-      <div id="fb-msg" style="font-size:11px;color:var(--on-card-muted);"></div>
-      <button onclick="submitFeedbackModal()" style="background:var(--mag);color:#fff;border:none;border-radius:99px;padding:10px 24px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Send feedback</button>
-    </div>
-  </div>
-</div>
-
-<!-- TOUR -->
-<div id="tour-overlay">
-  <div id="tour-highlight" style="display:none;"></div>
-  <div id="tour-bubble" style="display:none;">
-    <button onclick="endTour()" title="Close tour" style="position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:var(--on-card-muted);font-size:16px;line-height:1;padding:2px 5px;border-radius:4px;font-family:'Poppins',sans-serif;" onmouseover="this.style.color='var(--on-card)'" onmouseout="this.style.color='var(--on-card-muted)'">×</button>
-    <div class="tour-step-label" id="tour-step-label"></div>
-    <div class="tour-title" id="tour-title"></div>
-    <div class="tour-desc" id="tour-desc"></div>
-    <div class="tour-footer">
-      <div class="tour-dots" id="tour-dots"></div>
-      <button class="tour-btn" id="tour-next-btn" onclick="tourNext()">Next</button>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+      + '<button onclick="removeUnitPhoto(\'' + uid + '\',' + idx + ')" style="position:absolute;top:-6px;right:-6px;background:#1a1018;color:#fff;border:none;
