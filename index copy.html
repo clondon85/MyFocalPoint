@@ -1478,7 +1478,7 @@ var sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: {
     persistSession: true,
     detectSessionInUrl: true,
-    flowType: "implicit",
+    flowType: "pkce",
     storageKey: "pc26_auth",
     storage: _safeStorage
   }
@@ -1646,7 +1646,8 @@ function toggleLesson(uid, idx) {
     var vals = Object.values(COMPLETION);
     var total = Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length);
     pill.textContent = total + "% complete";
-renderCoursePace();
+  }
+  renderCoursePace();
   syncCourseCompletionGoals();
   clearTimeout(_saveTimer);
   persistNow();
@@ -3641,6 +3642,7 @@ if (LOCAL_MODE) {
         checkFirstLogin();
       });
     } else {
+      _sessionHandled = false;
       currentUser = null;
       document.getElementById("login-screen").classList.remove("hidden");
     }
